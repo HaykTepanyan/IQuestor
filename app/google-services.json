@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "600727515528",
+    "project_id": "iquestor",
+    "storage_bucket": "iquestor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600727515528:android:6c0fba305562817ca10a3d",
+        "android_client_info": {
+          "package_name": "com.example.iquestor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKyP36nbgwkjz5xOZfBbSS_V-lwDO4U_8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
