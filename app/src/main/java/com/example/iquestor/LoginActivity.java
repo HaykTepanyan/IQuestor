@@ -18,7 +18,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
-3
+
     EditText emailEditText, passwordEditText;
     Button loginBtn;
     ProgressBar progressBar;

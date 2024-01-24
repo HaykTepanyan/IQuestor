@@ -1,4 +1,5 @@
 package com.example.iquestor;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,15 +8,14 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class AboutUsActivity extends AppCompatActivity {
+
     ImageButton logoutBtn, languageBtn;
-    Button aboutUsBtn;
 
     private AlertDialog Dialog;
     private AlertDialog.Builder Builder;
@@ -26,10 +26,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_about_us);
 
-        aboutUsBtn = findViewById(R.id.about_us_btn);
-        aboutUsBtn.setOnClickListener((v)-> startActivity(new Intent(MainActivity.this, AboutUsActivity.class)));
 
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
         playButton = findViewById(R.id.volume_up_btn);
@@ -56,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         });
         mediaPlayer.start();
 
-
         languageBtn = findViewById(R.id.language_btn);
         languageBtn.setOnClickListener((v)-> showMenu());
 
@@ -65,13 +62,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Builder = new AlertDialog.Builder(MainActivity.this);
+                Builder = new AlertDialog.Builder(AboutUsActivity.this);
                 Builder.setMessage("Do you want to log out?");
                 Builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         FirebaseAuth.getInstance().signOut();
-                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                        startActivity(new Intent(AboutUsActivity.this, LoginActivity.class));
                         finish();
                     }
                 });
@@ -88,8 +85,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
 
-
+    private void showMenu() {
+        PopupMenu popupMenu = new PopupMenu(AboutUsActivity.this, languageBtn);
+        popupMenu.getMenu().add("English");
+        popupMenu.getMenu().add("Russian");
+        popupMenu.show();
     }
 
     protected void onPause(){
@@ -116,12 +118,5 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.release();
             mediaPlayer = null;
         }
-    }
-
-    void showMenu() {
-        PopupMenu popupMenu = new PopupMenu(MainActivity.this, languageBtn);
-        popupMenu.getMenu().add("English");
-        popupMenu.getMenu().add("Russian");
-        popupMenu.show();
     }
 }
