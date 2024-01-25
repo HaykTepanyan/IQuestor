@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_bar_layout">
+
+        <ImageButton
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:id="@+id/language_btn"
+            android:src="@drawable/baseline_language_24"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#424756"
+            android:background="?attr/selectableItemBackgroundBorderless"
+
+            />
+
+        <ImageButton
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:id="@+id/volume_up_btn"
+            android:src="@drawable/baseline_volume_up_24"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="38dp"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#424756"
+            android:background="?attr/selectableItemBackgroundBorderless"
+
+            />
+
+
+        <ImageButton
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:id="@+id/log_out_btn"
+            android:src="@drawable/baseline_logout_24"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#424756"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_bar_layout"
+        android:id="@+id/game_name_text_view"
+        android:textColor="#737D49"
+        android:textSize="70sp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/major_shift"
+        android:text="@string/app_name"/>
+
+    <TextView
+        android:id="@+id/htp_change_lang_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/game_name_text_view"
+        android:text="1) How to change language?"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="20sp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/htp_change_lang_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_change_lang_text"
+        android:text="At the very top left, there is an icon that looks like a planet, and if you click on it, a window will appear in which you must select which language you want to change the game interface to. In Russian, or in English."
+        android:textStyle="italic"
+        android:textSize="15sp"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="4sp"
+        >
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/htp_change_volume_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_change_lang_guide"
+        android:text="2) How to control sounds?"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="10sp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/htp_change_volume_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_change_volume_text"
+        android:text="To control the volume, there is a sound icon at the top. By default, background music is turned on, but when you press this button, it will turn off and the icon will change. When pressed again, the music in the background will resume playing where it left off."
+        android:textStyle="italic"
+        android:textSize="15sp"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="4sp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/htp_change_acc_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_change_volume_guide"
+        android:text="3) How to sign-out or change account?"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="10sp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/htp_change_acc_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_change_acc_text"
+        android:text="To change or log out of your account, click on the logout button in the very top right corner. When you click on it, a menu will appear in which you need to click “yes”. You will then be taken to the registration menu."
+        android:textStyle="italic"
+        android:textSize="15sp"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="4sp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/htp_about_us_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_change_acc_guide"
+        android:text="4) Where can I read about the game?"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="10sp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/htp_about_us_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_about_us_text"
+        android:text="In the main menu, by clicking on the bottom button that says “ABOUT US”, you will be taken to a page where everything is described in detail about the game and its developer. Also there you will find the developer’s contact information so that if you need to contact him."
+        android:textStyle="italic"
+        android:textSize="15sp"
+        android:layout_marginHorizontal="20sp"
+        android:layout_marginTop="4sp"
+        >
+    </TextView>
+
+</RelativeLayout>
