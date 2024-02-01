@@ -75,16 +75,15 @@
             android:id="@+id/play_btn"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:text="PLAY"
+            android:text="@string/act_main_play_res"
             android:textSize="29dp"
-
             android:textStyle="bold"/>
 
         <Button
             android:id="@+id/reset_btn"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:text="RESET PROGRESS"
+            android:text="@string/act_main_reset_progress_res"
             android:textSize="29dp"
             android:textStyle="bold"/>
 
@@ -92,7 +91,7 @@
             android:id="@+id/how_to_play_btn"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:text="HOW TO PLAY?"
+            android:text="@string/act_main_htp_res"
             android:textSize="29dp"
             android:textStyle="bold"/>
 
@@ -100,7 +99,7 @@
             android:id="@+id/about_us_btn"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:text="ABOUT US"
+            android:text="@string/act_main_about_us_res"
             android:textSize="29dp"
             android:textStyle="bold"/>
 

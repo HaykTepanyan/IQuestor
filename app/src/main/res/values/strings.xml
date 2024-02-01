@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">IQuestor</string>
+    <string name="app_name" translatable="false">IQuestor</string>
+    <string name="about_us_text_res">Hello, you are being greeted by the creator of the "IQuestor" application. This application is a quest game in which you have to go through the path of a soldier, making various choices that will directly effect the continuation of the game. The main goal is to rise from private to general.</string>
+    <string name="about_us_mail_res">Mail: htepanyan@list.ru</string>
+    <string name="about_us_phone_res">Phone: +374 (33)-52-74-77</string>
+    <string name="about_us_creator_res">Created by: Hayk Tepanyan</string>
+    <string name="about_us_teacher_res">Teacher: Mikayel Elizbaryan</string>
+    <string name="htp_ht_change_lang_res">1) How to change language?</string>
+    <string name="htp_ht_change_lang_text_res">At the very top left, there is an icon that looks like a planet, and if you click on it, a window will appear in which you must select which language you want to change the game interface to. In Russian, or in English.</string>
+    <string name="htp_ht_control_sounds_res">2) How to control sounds?</string>
+    <string name="htp_ht_control_sounds_text_res">To control the volume, there is a sound icon at the top. By default, background music is turned on, but when you press this button, it will turn off and the icon will change. When pressed again, the music in the background will resume playing where it left off.</string>
+    <string name="htp_ht_change_acc_res">3) How to sign-out or change account?</string>
+    <string name="htp_ht_change_acc_text_res">To change or log out of your account, click on the logout button in the very top right corner. When you click on it, a menu will appear in which you need to click “yes”. You will then be taken to the registration menu.</string>
+    <string name="htp_ht_about_game_res">4) Where can I read about the game?</string>
+    <string name="htp_ht_about_game_text_res">In the main menu, by clicking on the bottom button that says “ABOUT US”, you will be taken to a page where everything is described in detail about the game and its developer. Also there you will find the developer’s contact information so that if you need to contact him.</string>
+    <string name="act_main_play_res">PLAY</string>
+    <string name="act_main_reset_progress_res">RESET PROGRESS</string>
+    <string name="act_main_htp_res">HOW TO PLAY?</string>
+    <string name="act_main_about_us_res">ABOUT US</string>
 </resources>

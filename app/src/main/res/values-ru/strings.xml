@@ -1,0 +1,19 @@
+<resources>
+    <string name="about_us_text_res">Здравствуйте, Вас приветствует создатель приложения IQuestor. Это приложение представляет из себя игру-квест, в которой вам предстоит пройти путь солдата, делая различные выборы, которые напрямую повлияют на продолжение игры. Основная цель – подняться от рядового до генерала.</string>
+    <string name="about_us_mail_res">Почта: htepanyan@list.ru</string>
+    <string name="about_us_phone_res">Телефон: +374 (33)-52-74-77</string>
+    <string name="about_us_creator_res">Создатель: Айк Тепанян</string>
+    <string name="about_us_teacher_res">Учитель: Микаель Элизбарян</string>
+    <string name="htp_ht_change_lang_res">1) Как поменять язык?</string>
+    <string name="htp_ht_change_lang_text_res">В самом верху слева есть значок, похожий на планету, и если нажать на него, появится окно, в котором необходимо выбрать, на какой язык вы хотите сменить интерфейс игры, на русский или английский язык.</string>
+    <string name="htp_ht_control_sounds_res">2) Как управлять звуками?</string>
+    <string name="htp_ht_control_sounds_text_res">Для управления громкостью вверху есть значок звука. По умолчанию фоновая музыка включена, но при нажатии на эту кнопку она выключается и значок меняется. При повторном нажатии музыка в фоновом режиме возобновит воспроизведение с того места, где она остановилась.</string>
+    <string name="htp_ht_change_acc_res">3) Как выйти/поменять аккаунт?</string>
+    <string name="htp_ht_change_acc_text_res">Чтобы изменить или выйти из своей учетной записи, нажмите кнопку выхода в самом верхнем правом углу. При нажатии на нее появится меню, в котором нужно нажать «да». После этого вы попадете в меню регистрации.</string>
+    <string name="htp_ht_about_game_res">4) Где я могу прочитать об игре?</string>
+    <string name="htp_ht_about_game_text_res">В главном меню, нажав на нижнюю кнопку с надписью «О НАС», вы попадете на страницу, где все подробно описано об игре и ее разработчике. Также там вы найдете контактную информацию разработчика, чтобы при необходимости с ним связаться.</string>
+    <string name="act_main_play_res">ИГРАТЬ</string>
+    <string name="act_main_reset_progress_res">НАЧАТЬ ЗАНОГО</string>
+    <string name="act_main_htp_res">КАК ИГРАТЬ?</string>
+    <string name="act_main_about_us_res">О НАС</string>
+</resources>
