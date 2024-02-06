@@ -13,9 +13,10 @@ import android.widget.PopupMenu;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class AboutUsActivity extends AppCompatActivity {
+public class AboutUsActivity extends BaseActivity {
 
     ImageButton logoutBtn, languageBtn;
+    ImageButton changeLangBtn;
 
     private AlertDialog Dialog;
     private AlertDialog.Builder Builder;
@@ -27,6 +28,8 @@ public class AboutUsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
+
+        changeLangBtn = findViewById(R.id.language_btn);
 
 
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
@@ -53,9 +56,6 @@ public class AboutUsActivity extends AppCompatActivity {
             }
         });
         mediaPlayer.start();
-
-        languageBtn = findViewById(R.id.language_btn);
-        languageBtn.setOnClickListener((v)-> showMenu());
 
         logoutBtn = findViewById(R.id.log_out_btn);
         logoutBtn.setOnClickListener(new View.OnClickListener() {
@@ -85,13 +85,6 @@ public class AboutUsActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    private void showMenu() {
-        PopupMenu popupMenu = new PopupMenu(AboutUsActivity.this, languageBtn);
-        popupMenu.getMenu().add("English");
-        popupMenu.getMenu().add("Russian");
-        popupMenu.show();
     }
 
     protected void onPause(){

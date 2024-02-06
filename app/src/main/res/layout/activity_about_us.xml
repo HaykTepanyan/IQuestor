@@ -113,7 +113,7 @@
         android:textStyle="bold|italic"
         android:textSize="18sp"
         android:layout_marginLeft="20sp"
-        android:layout_marginVertical="245sp"
+        android:layout_marginVertical="230sp"
         >
 
     </TextView>
@@ -127,7 +127,7 @@
         android:textStyle="bold|italic"
         android:textSize="18sp"
         android:layout_marginLeft="20sp"
-        android:layout_marginVertical="220sp"
+        android:layout_marginVertical="210sp"
         >
 
     </TextView>

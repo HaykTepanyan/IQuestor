@@ -5,7 +5,10 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.LayoutRes;
@@ -15,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Locale;
 
 public class BaseActivity extends AppCompatActivity {
+
+    ImageButton changeLangBtn;
 
     Button aboutUsBtn;
     Button howToPlayBtn;
@@ -41,7 +46,33 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         loadSavedLanguage();
         super.onCreate(savedInstanceState);
+
+        changeLangBtn = findViewById(R.id.language_btn);
+        if (changeLangBtn != null) {
+            changeLangBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String currentLanguage = getCurrentLanguage();
+
+                    if (currentLanguage.equals("en")) {
+                        setLocale("ru");
+                    } else {
+                        setLocale("en");
+                    }
+
+                    recreate();
+
+                    String newLanguage = "ru";
+
+                    saveLanguage(newLanguage);
+                }
+
+            });
+        }else {
+            Log.e("LanguageButton", "Button is null");
+        }
     }
+
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
@@ -54,21 +85,21 @@ public class BaseActivity extends AppCompatActivity {
         howToPlayBtn = findViewById(R.id.how_to_play_btn);
         playBtn = findViewById(R.id.play_btn);
         resetProgressBtn = findViewById(R.id.reset_btn);
-        aboutUsBtn.setText(getString(R.string.act_main_about_us_res));
-        howToPlayBtn.setText(getString(R.string.act_main_htp_res));
-        playBtn.setText(getString(R.string.act_main_play_res));
-        resetProgressBtn.setText(getString(R.string.act_main_reset_progress_res));
+        setTextSafely(aboutUsBtn, R.string.act_main_about_us_res);
+        setTextSafely(howToPlayBtn, R.string.act_main_htp_res);
+        setTextSafely(playBtn, R.string.act_main_play_res);
+        setTextSafely(resetProgressBtn, R.string.act_main_reset_progress_res);
 
         auMailBtn = findViewById(R.id.about_us_mail_text);
         auCreatorBtn = findViewById(R.id.about_us_creator_text);
         auTeacherBtn = findViewById(R.id.about_us_teacher_text);
         auPhoneBtn = findViewById(R.id.about_us_phone_text);
         auTextBtn = findViewById(R.id.about_us_text);
-        auMailBtn.setText(getString(R.string.about_us_mail_res));
-        auCreatorBtn.setText(getString(R.string.about_us_creator_res));
-        auTeacherBtn.setText(getString(R.string.about_us_teacher_res));
-        auPhoneBtn.setText(getString(R.string.about_us_phone_res));
-        auTextBtn.setText(getString(R.string.about_us_text_res));
+        setTextSafely(auMailBtn, R.string.about_us_mail_res);
+        setTextSafely(auCreatorBtn, R.string.about_us_creator_res);
+        setTextSafely(auTeacherBtn, R.string.about_us_teacher_res);
+        setTextSafely(auPhoneBtn, R.string.about_us_phone_res);
+        setTextSafely(auTextBtn, R.string.about_us_text_res);
 
         htpChangeLangBtn = findViewById(R.id.htp_change_lang_text);
         htpChangeLangGuideBtn = findViewById(R.id.htp_change_lang_guide);
@@ -78,18 +109,25 @@ public class BaseActivity extends AppCompatActivity {
         htpControlSoundsGuideBtn = findViewById(R.id.htp_change_volume_guide);
         htpAboutBtn = findViewById(R.id.htp_about_us_text);
         htpAboutGuideBtn = findViewById(R.id.htp_about_us_guide);
-        htpChangeLangBtn.setText(getString(R.string.about_us_mail_res));
-        htpChangeLangGuideBtn.setText(getString(R.string.about_us_creator_res));
-        htpAccBtn.setText(getString(R.string.about_us_teacher_res));
-        htpAccGuideBtn.setText(getString(R.string.about_us_phone_res));
-        htpControlSoundsBtn.setText(getString(R.string.about_us_mail_res));
-        htpControlSoundsGuideBtn.setText(getString(R.string.about_us_creator_res));
-        htpAboutBtn.setText(getString(R.string.about_us_teacher_res));
-        htpAboutGuideBtn.setText(getString(R.string.about_us_phone_res));
-
+        setTextSafely(htpChangeLangBtn, R.string.htp_ht_change_lang_res);
+        setTextSafely(htpChangeLangGuideBtn, R.string.htp_ht_change_lang_text_res);
+        setTextSafely(htpAccBtn, R.string.htp_ht_change_acc_res);
+        setTextSafely(htpAccGuideBtn, R.string.htp_ht_change_acc_text_res);
+        setTextSafely(htpControlSoundsBtn, R.string.htp_ht_control_sounds_res);
+        setTextSafely(htpControlSoundsGuideBtn, R.string.htp_ht_control_sounds_text_res);
+        setTextSafely(htpAboutBtn, R.string.htp_ht_about_game_res);
+        setTextSafely(htpAboutGuideBtn, R.string.htp_ht_about_game_text_res);
 
         setLocale(getCurrentLanguage());
     }
+
+    private void setTextSafely(TextView textView, int stringResId) {
+        if (textView != null) {
+            textView.setText(getString(stringResId));
+        }
+    }
+
+
 
     private void setLocale(String languageCode) {
         Locale locale = new Locale(languageCode);

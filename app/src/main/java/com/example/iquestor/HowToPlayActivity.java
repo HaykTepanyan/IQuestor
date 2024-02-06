@@ -13,8 +13,9 @@ import android.widget.PopupMenu;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class HowToPlayActivity extends AppCompatActivity {
+public class HowToPlayActivity extends BaseActivity {
 
+    ImageButton changeLangBtn;
     ImageButton logoutBtn, languageBtn;
     private AlertDialog Dialog;
     private AlertDialog.Builder Builder;
@@ -28,7 +29,7 @@ public class HowToPlayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_how_to_play);
 
-
+        changeLangBtn = findViewById(R.id.language_btn);
 
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
         playButton = findViewById(R.id.volume_up_btn);
@@ -55,8 +56,6 @@ public class HowToPlayActivity extends AppCompatActivity {
         });
         mediaPlayer.start();
 
-        languageBtn = findViewById(R.id.language_btn);
-        languageBtn.setOnClickListener((v)-> showMenu());
 
         logoutBtn = findViewById(R.id.log_out_btn);
         logoutBtn.setOnClickListener(new View.OnClickListener() {
@@ -86,13 +85,6 @@ public class HowToPlayActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    private void showMenu() {
-        PopupMenu popupMenu = new PopupMenu(HowToPlayActivity.this, languageBtn);
-        popupMenu.getMenu().add("English");
-        popupMenu.getMenu().add("Russian");
-        popupMenu.show();
     }
 
     protected void onPause(){

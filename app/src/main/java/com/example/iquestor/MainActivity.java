@@ -26,6 +26,7 @@ public class MainActivity extends BaseActivity {
     Button aboutUsBtn;
     Button howToPlayBtn;
     Button playBtn;
+    ImageButton changeLangBtn;
     Button resetProgressBtn;
     private AlertDialog Dialog;
     private AlertDialog.Builder Builder;
@@ -37,6 +38,8 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        changeLangBtn = findViewById(R.id.language_btn);
 
         aboutUsBtn = findViewById(R.id.about_us_btn);
         aboutUsBtn.setOnClickListener((v)-> startActivity(new Intent(MainActivity.this, AboutUsActivity.class)));
@@ -60,6 +63,11 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
+
+
+
+
+
 
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
