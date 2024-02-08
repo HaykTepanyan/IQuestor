@@ -11,6 +11,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.Locale;
 
 public class MainActivity extends BaseActivity {
-    ImageButton logoutBtn, languageBtn;
+    ImageButton logoutBtn;
     Button aboutUsBtn;
     Button howToPlayBtn;
     Button playBtn;
@@ -40,6 +41,28 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         changeLangBtn = findViewById(R.id.language_btn);
+        if (changeLangBtn != null) {
+            changeLangBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String currentLanguage = getCurrentLanguage();
+
+                    if (currentLanguage.equals("en")) {
+                        setLocale("ru");
+                    } else {
+                        setLocale("en");
+                    }
+
+                    updateUI();
+
+                    String newLanguage = getCurrentLanguage();
+                    saveLanguage(newLanguage);
+                }
+
+            });
+        }else {
+            Log.e("LanguageButton", "Button is null");
+        }
 
         aboutUsBtn = findViewById(R.id.about_us_btn);
         aboutUsBtn.setOnClickListener((v)-> startActivity(new Intent(MainActivity.this, AboutUsActivity.class)));

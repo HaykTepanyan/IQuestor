@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
@@ -16,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HowToPlayActivity extends BaseActivity {
 
     ImageButton changeLangBtn;
-    ImageButton logoutBtn, languageBtn;
+    ImageButton logoutBtn;
     private AlertDialog Dialog;
     private AlertDialog.Builder Builder;
     private MediaPlayer mediaPlayer;
@@ -30,6 +31,28 @@ public class HowToPlayActivity extends BaseActivity {
         setContentView(R.layout.activity_how_to_play);
 
         changeLangBtn = findViewById(R.id.language_btn);
+        if (changeLangBtn != null) {
+            changeLangBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String currentLanguage = getCurrentLanguage();
+
+                    if (currentLanguage.equals("en")) {
+                        setLocale("ru");
+                    } else {
+                        setLocale("en");
+                    }
+
+                    updateUI();
+
+                    String newLanguage = getCurrentLanguage();
+                    saveLanguage(newLanguage);
+                }
+
+            });
+        }else {
+            Log.e("LanguageButton", "Button is null");
+        }
 
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
         playButton = findViewById(R.id.volume_up_btn);

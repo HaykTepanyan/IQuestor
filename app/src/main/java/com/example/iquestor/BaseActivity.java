@@ -46,31 +46,6 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         loadSavedLanguage();
         super.onCreate(savedInstanceState);
-
-        changeLangBtn = findViewById(R.id.language_btn);
-        if (changeLangBtn != null) {
-            changeLangBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String currentLanguage = getCurrentLanguage();
-
-                    if (currentLanguage.equals("en")) {
-                        setLocale("ru");
-                    } else {
-                        setLocale("en");
-                    }
-
-                    recreate();
-
-                    String newLanguage = "ru";
-
-                    saveLanguage(newLanguage);
-                }
-
-            });
-        }else {
-            Log.e("LanguageButton", "Button is null");
-        }
     }
 
 
@@ -80,7 +55,7 @@ public class BaseActivity extends AppCompatActivity {
         updateUI();
     }
 
-    private void updateUI() {
+    public void updateUI() {
         aboutUsBtn = findViewById(R.id.about_us_btn);
         howToPlayBtn = findViewById(R.id.how_to_play_btn);
         playBtn = findViewById(R.id.play_btn);
@@ -129,7 +104,7 @@ public class BaseActivity extends AppCompatActivity {
 
 
 
-    private void setLocale(String languageCode) {
+    public void setLocale(String languageCode) {
         Locale locale = new Locale(languageCode);
         Locale.setDefault(locale);
 
@@ -140,7 +115,7 @@ public class BaseActivity extends AppCompatActivity {
         resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
 
-    private void saveLanguage(String languageCode) {
+    public void saveLanguage(String languageCode) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("language", languageCode);
@@ -156,7 +131,7 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    private String getCurrentLanguage() {
+    public String getCurrentLanguage() {
         Configuration configuration = getResources().getConfiguration();
         return configuration.locale.getLanguage();
     }
