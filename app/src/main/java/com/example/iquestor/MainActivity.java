@@ -67,6 +67,9 @@ public class MainActivity extends BaseActivity {
         aboutUsBtn = findViewById(R.id.about_us_btn);
         aboutUsBtn.setOnClickListener((v)-> startActivity(new Intent(MainActivity.this, AboutUsActivity.class)));
 
+        playBtn = findViewById(R.id.play_btn);
+        playBtn.setOnClickListener((v)-> startActivity(new Intent(MainActivity.this, PlayActivity.class)));
+
         howToPlayBtn = findViewById(R.id.how_to_play_btn);
         howToPlayBtn.setOnClickListener((v)-> startActivity(new Intent(MainActivity.this, HowToPlayActivity.class)));
 
@@ -86,12 +89,6 @@ public class MainActivity extends BaseActivity {
                 }
             }
         });
-
-
-
-
-
-
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {

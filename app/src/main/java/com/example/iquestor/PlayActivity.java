@@ -1,8 +1,5 @@
 package com.example.iquestor;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -10,15 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.PopupMenu;
+
+import androidx.appcompat.app.AlertDialog;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class AboutUsActivity extends BaseActivity {
+public class PlayActivity extends BaseActivity {
 
-    ImageButton logoutBtn;
     ImageButton changeLangBtn;
-
+    ImageButton logoutBtn;
     private AlertDialog Dialog;
     private AlertDialog.Builder Builder;
     private MediaPlayer mediaPlayer;
@@ -28,7 +25,7 @@ public class AboutUsActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about_us);
+        setContentView(R.layout.activity_play);
 
         changeLangBtn = findViewById(R.id.language_btn);
         if (changeLangBtn != null) {
@@ -53,7 +50,6 @@ public class AboutUsActivity extends BaseActivity {
         }else {
             Log.e("LanguageButton", "Button is null");
         }
-
 
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
         playButton = findViewById(R.id.volume_up_btn);
@@ -84,13 +80,13 @@ public class AboutUsActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                Builder = new AlertDialog.Builder(AboutUsActivity.this);
+                Builder = new AlertDialog.Builder(PlayActivity.this);
                 Builder.setMessage("Do you want to log out?");
                 Builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         FirebaseAuth.getInstance().signOut();
-                        startActivity(new Intent(AboutUsActivity.this, LoginActivity.class));
+                        startActivity(new Intent(PlayActivity.this, LoginActivity.class));
                         finish();
                     }
                 });
@@ -107,6 +103,7 @@ public class AboutUsActivity extends BaseActivity {
 
             }
         });
+
     }
 
     protected void onPause(){

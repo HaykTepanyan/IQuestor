@@ -70,7 +70,6 @@ public class HowToPlayActivity extends BaseActivity {
                 }
             }
         });
-
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
