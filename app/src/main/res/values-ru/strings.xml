@@ -16,8 +16,8 @@
     <string name="act_main_reset_progress_res">НАЧАТЬ ЗАНОГО</string>
     <string name="act_main_htp_res">КАК ИГРАТЬ?</string>
     <string name="act_main_about_us_res">О НАС</string>
-    <string name="once_upon_a_time">Вооруженные силы, также известные как вооруженные силы, представляют собой хорошо вооруженные, высокоорганизованные силы, предназначенные в первую очередь для ведения войны.</string>
-    <string name="version_a">Вооруженные силы, также известные как вооруженные силы, представляют собой хорошо вооруженные</string>
-    <string name="version_b">Вооруженные силы, также известные как вооруженные силы, представляют собой хорошо вооруженные</string>
-    <string name="version_c">Вооруженные силы, также известные как вооруженные силы, представляют собой хорошо вооруженные</string>
+    <string name="once_upon_a_time">Ты пошёл в казарму, где нужно застелить кровать и почистить обувь.</string>
+    <string name="version_a">а) Сделать всё, что нужно.</string>
+    <string name="version_b">б) Оставить всё как есть и идти отдыхать.</string>
+    <string name="version_c">в) Заставить другого сделать всё за тебя.</string>
 </resources>

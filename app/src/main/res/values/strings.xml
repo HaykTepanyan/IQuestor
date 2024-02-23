@@ -17,8 +17,8 @@
     <string name="act_main_reset_progress_res">RESET PROGRESS</string>
     <string name="act_main_htp_res">HOW TO PLAY?</string>
     <string name="act_main_about_us_res">ABOUT US</string>
-    <string name="version_a">a)A military, also known collectively as an armed forces, are a heavily armed.</string>
-    <string name="version_b">b)A military, also known collectively as an armed forces, are a heavily armed.</string>
-    <string name="version_c">c)A military, also known collectively as an armed forces, are a heavily armed.</string>
-    <string name="once_upon_a_time">A military, also known collectively as an armed forces, are a heavily armed, highly organized force primarily intended for warfare.</string>
+    <string name="version_a">а) Do everything that needs to be done.</string>
+    <string name="version_b">b) Leave everything as it is and go to rest.</string>
+    <string name="version_c">c) Make someone else do everything for you.</string>
+    <string name="once_upon_a_time">You went to the barracks, where you need to make the bed and clean your shoes.</string>
 </resources>
