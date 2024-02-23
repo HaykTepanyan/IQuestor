@@ -2,7 +2,7 @@
     <string name="app_name" translatable="false">IQuestor</string>
     <string name="about_us_text_res">Hello, you are being greeted by the creator of the "IQuestor" application. This application is a quest game in which you have to go through the path of a soldier, making various choices that will directly effect the continuation of the game. The main goal is to rise from private to general.</string>
     <string name="about_us_mail_res">Mail: htepanyan@list.ru</string>
-    <string name="about_us_phone_res">Phone: +374 (33)-52-74-77</string>
+    <string name="about_us_phone_res">Phone: +374 (33)–52–74-77</string>
     <string name="about_us_creator_res">Created by: Hayk Tepanyan</string>
     <string name="about_us_teacher_res">Teacher: Mikayel Elizbaryan</string>
     <string name="htp_ht_change_lang_res">1) How to change language?</string>
@@ -17,4 +17,8 @@
     <string name="act_main_reset_progress_res">RESET PROGRESS</string>
     <string name="act_main_htp_res">HOW TO PLAY?</string>
     <string name="act_main_about_us_res">ABOUT US</string>
+    <string name="version_a">a)A military, also known collectively as an armed forces, are a heavily armed.</string>
+    <string name="version_b">b)A military, also known collectively as an armed forces, are a heavily armed.</string>
+    <string name="version_c">c)A military, also known collectively as an armed forces, are a heavily armed.</string>
+    <string name="once_upon_a_time">A military, also known collectively as an armed forces, are a heavily armed, highly organized force primarily intended for warfare.</string>
 </resources>

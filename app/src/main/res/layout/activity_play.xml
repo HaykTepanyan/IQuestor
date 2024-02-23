@@ -47,4 +47,70 @@
 
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/gameplay_lay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="15dp"
+        android:layout_marginHorizontal="15dp"
+        android:orientation="vertical"
+        android:layout_below="@id/title_bar_layout">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+
+            android:src="@drawable/situation_1"/>
+
+        <EditText
+            android:id="@+id/situation_edit_text"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+
+            android:layout_height="wrap_content"
+            android:text="@string/once_upon_a_time"
+            android:textSize="20sp"
+            android:padding="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/situation_border_corner"/>
+
+        <EditText
+            android:id="@+id/version1_edit_text"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="10dp"
+            android:layout_height="wrap_content"
+            android:text="@string/version_a"
+            android:textSize="20sp"
+            android:padding="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/version_border_corner"/>
+
+        <EditText
+            android:id="@+id/version2_edit_text"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="10dp"
+            android:layout_height="wrap_content"
+            android:text="@string/version_b"
+            android:textSize="20sp"
+            android:padding="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/version_border_corner"/>
+
+        <EditText
+            android:id="@+id/version3_edit_text"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="10dp"
+            android:layout_height="wrap_content"
+            android:text="@string/version_c"
+            android:textSize="20sp"
+            android:padding="16dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/version_border_corner"/>
+
+
+
+    </LinearLayout>
+
 </RelativeLayout>

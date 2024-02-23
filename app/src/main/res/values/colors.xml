@@ -5,9 +5,9 @@
 
     <color name="brown">#675645</color>
     <color name="green">#4d784e</color>
-    <color name="black">#424756</color>
+    <color name="black">#1c222e</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="teal_200">#D14D72</color>
-    <color name="teal_700">#D14D72</color>
+    <color name="teal_200">#41533b</color>
+    <color name="teal_700">#604439</color>
 </resources>

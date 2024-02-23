@@ -44,8 +44,6 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         loginBtnTextView.setOnClickListener(v -> finish());
 
-
-
     }
 
     void createAccount(){
