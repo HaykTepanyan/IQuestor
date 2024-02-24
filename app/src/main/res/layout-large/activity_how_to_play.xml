@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/title_bar_layout">
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/language_btn"
+            android:src="@drawable/baseline_language_24"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#424756"
+            android:background="?attr/selectableItemBackgroundBorderless"
+
+            />
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/volume_up_btn"
+            android:src="@drawable/baseline_volume_up_24"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="38dp"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#424756"
+            android:background="?attr/selectableItemBackgroundBorderless"
+
+            />
+
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/log_out_btn"
+            android:src="@drawable/baseline_logout_24"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:backgroundTint="#424756"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_bar_layout"
+        android:id="@+id/game_name_text_view"
+        android:textColor="#737D49"
+        android:textSize="70sp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/major_shift"
+        android:text="@string/app_name"/>
+
+    <TextView
+        android:id="@+id/htp_change_lang_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/game_name_text_view"
+        android:text="@string/htp_ht_change_lang_res"
+        android:textStyle="bold"
+        android:textSize="32sp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="28dp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/htp_change_lang_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_change_lang_text"
+        android:text="@string/htp_ht_change_lang_text_res"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="4dp"
+        >
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/htp_change_volume_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_change_lang_guide"
+        android:text="@string/htp_ht_control_sounds_res"
+        android:textStyle="bold"
+        android:textSize="32sp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="10dp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/htp_change_volume_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_change_volume_text"
+        android:text="@string/htp_ht_control_sounds_text_res"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="5dp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/htp_change_acc_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_change_volume_guide"
+        android:text="@string/htp_ht_change_acc_res"
+        android:textStyle="bold"
+        android:textSize="32sp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="10dp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/htp_change_acc_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_change_acc_text"
+        android:text="@string/htp_ht_change_acc_text_res"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="5dp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/htp_about_us_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_change_acc_guide"
+        android:text="@string/htp_ht_about_game_res"
+        android:textStyle="bold"
+        android:textSize="32sp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="10dp"
+        >
+    </TextView>
+
+    <TextView
+        android:id="@+id/htp_about_us_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/htp_about_us_text"
+        android:text="@string/htp_ht_about_game_text_res"
+        android:textStyle="italic"
+        android:textSize="25sp"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="5dp"
+        >
+    </TextView>
+
+</RelativeLayout>

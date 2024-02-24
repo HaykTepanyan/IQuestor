@@ -9,8 +9,8 @@
         android:id="@+id/title_bar_layout">
 
         <ImageButton
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:id="@+id/language_btn"
             android:src="@drawable/baseline_language_24"
             android:layout_alignParentStart="true"
@@ -21,8 +21,8 @@
             />
 
         <ImageButton
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:id="@+id/volume_up_btn"
             android:src="@drawable/baseline_volume_up_24"
             android:layout_alignParentStart="true"
@@ -35,8 +35,8 @@
 
 
         <ImageButton
-            android:layout_width="36dp"
-            android:layout_height="36dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:id="@+id/log_out_btn"
             android:src="@drawable/baseline_logout_24"
             android:layout_alignParentEnd="true"
@@ -57,57 +57,57 @@
         android:layout_below="@id/title_bar_layout">
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="190dp"
 
             android:src="@drawable/situation_1"/>
 
         <TextView
-            android:id="@+id/situation_edit_text"
+            android:id="@+id/situation_text_view"
             android:layout_width="match_parent"
             android:textStyle="bold"
 
             android:layout_height="wrap_content"
             android:text="@string/once_upon_a_time"
-            android:textSize="20sp"
+            android:textSize="50sp"
             android:padding="16dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/situation_border_corner"/>
 
         <TextView
-            android:id="@+id/version1_edit_text"
+            android:id="@+id/version1_text_view"
             android:layout_width="match_parent"
             android:textStyle="bold"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_height="wrap_content"
             android:text="@string/version_a"
-            android:textSize="20sp"
+            android:textSize="40sp"
             android:padding="16dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/version_border_corner"/>
 
         <TextView
-            android:id="@+id/version2_edit_text"
+            android:id="@+id/version2_text_view"
             android:layout_width="match_parent"
             android:textStyle="bold"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_height="wrap_content"
             android:text="@string/version_b"
-            android:textSize="20sp"
+            android:textSize="40sp"
             android:padding="16dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/version_border_corner"/>
 
         <TextView
-            android:id="@+id/version3_edit_text"
+            android:id="@+id/version3_text_view"
             android:layout_width="match_parent"
             android:textStyle="bold"
-            android:layout_marginHorizontal="10dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_height="wrap_content"
             android:text="@string/version_c"
-            android:textSize="20sp"
+            android:textSize="40sp"
             android:padding="16dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/version_border_corner"/>
+            android:layout_marginTop="15dp"
+            android:background="@drawable/version_border_corner" />
 
 
 

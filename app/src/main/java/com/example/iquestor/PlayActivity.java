@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 
@@ -21,6 +22,11 @@ public class PlayActivity extends BaseActivity {
     private MediaPlayer mediaPlayer;
     private ImageButton playButton;
     private boolean isPlaying = false;
+
+    private TextView once_upon;
+    private TextView ans_a;
+    private TextView ans_b;
+    private TextView ans_c;
 
 
 
@@ -107,6 +113,32 @@ public class PlayActivity extends BaseActivity {
             }
         });
 
+
+        once_upon = findViewById(R.id.situation_text_view);
+        ans_a = findViewById(R.id.version1_text_view);
+        ans_b = findViewById(R.id.version2_text_view);
+        ans_c = findViewById(R.id.version3_text_view);
+
+        ans_a.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utility.showToast(PlayActivity.this, "TEST_1");
+            }
+        });
+
+        ans_b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utility.showToast(PlayActivity.this, "TEST_2");
+            }
+        });
+
+        ans_c.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Utility.showToast(PlayActivity.this, "TEST_3");
+            }
+        });
     }
 
     protected void onPause(){
