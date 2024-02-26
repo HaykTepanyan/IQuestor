@@ -62,48 +62,48 @@
             android:src="@drawable/situation_1"/>
 
         <TextView
-            android:id="@+id/situation_edit_text"
+            android:id="@+id/situation_text_view"
             android:layout_width="match_parent"
             android:textStyle="bold"
 
             android:layout_height="wrap_content"
-            android:text="@string/once_upon_a_time"
+            android:text=""
             android:textSize="20sp"
             android:padding="16dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/situation_border_corner"/>
 
         <TextView
-            android:id="@+id/version1_edit_text"
+            android:id="@+id/version1_text_view"
             android:layout_width="match_parent"
             android:textStyle="bold"
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
-            android:text="@string/version_a"
+            android:text=""
             android:textSize="20sp"
             android:padding="16dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/version_border_corner"/>
 
         <TextView
-            android:id="@+id/version2_edit_text"
+            android:id="@+id/version2_text_view"
             android:layout_width="match_parent"
             android:textStyle="bold"
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
-            android:text="@string/version_b"
+            android:text=""
             android:textSize="20sp"
             android:padding="16dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/version_border_corner"/>
 
         <TextView
-            android:id="@+id/version3_edit_text"
+            android:id="@+id/version3_text_view"
             android:layout_width="match_parent"
             android:textStyle="bold"
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
-            android:text="@string/version_c"
+            android:text=""
             android:textSize="20sp"
             android:padding="16dp"
             android:layout_marginTop="12dp"

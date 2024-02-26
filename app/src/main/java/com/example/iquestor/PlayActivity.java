@@ -9,11 +9,13 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class PlayActivity extends BaseActivity {
+public class PlayActivity extends AppCompatActivity {
 
     ImageButton changeLangBtn;
     ImageButton logoutBtn;
@@ -22,11 +24,11 @@ public class PlayActivity extends BaseActivity {
     private MediaPlayer mediaPlayer;
     private ImageButton playButton;
     private boolean isPlaying = false;
-
-    private TextView once_upon;
-    private TextView ans_a;
-    private TextView ans_b;
-    private TextView ans_c;
+    private int currentSituationIndex = 0;
+    TextView once_upon;
+    TextView ans_a;
+    TextView ans_b;
+    TextView ans_c;
 
 
 
@@ -35,30 +37,6 @@ public class PlayActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
-
-        changeLangBtn = findViewById(R.id.language_btn);
-        if (changeLangBtn != null) {
-            changeLangBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String currentLanguage = getCurrentLanguage();
-
-                    if (currentLanguage.equals("en")) {
-                        setLocale("ru");
-                    } else {
-                        setLocale("en");
-                    }
-
-                    updateUI();
-
-                    String newLanguage = getCurrentLanguage();
-                    saveLanguage(newLanguage);
-                }
-
-            });
-        }else {
-            Log.e("LanguageButton", "Button is null");
-        }
 
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
         playButton = findViewById(R.id.volume_up_btn);
@@ -113,33 +91,67 @@ public class PlayActivity extends BaseActivity {
             }
         });
 
+        updateSituation(currentSituationIndex);
 
         once_upon = findViewById(R.id.situation_text_view);
         ans_a = findViewById(R.id.version1_text_view);
         ans_b = findViewById(R.id.version2_text_view);
         ans_c = findViewById(R.id.version3_text_view);
 
+
+        once_upon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                once_upon.setText(getResources().getString(R.string.zvaniyaStory));
+            }
+        });
+
         ans_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utility.showToast(PlayActivity.this, "TEST_1");
+                handleOptionClick(1);
             }
         });
-
         ans_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utility.showToast(PlayActivity.this, "TEST_2");
+                handleOptionClick(2);
             }
         });
-
         ans_c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utility.showToast(PlayActivity.this, "TEST_3");
+                handleOptionClick(3);
             }
         });
     }
+
+    private void updateSituation(int situationIndex) {
+        // Получение массивов из ресурсов
+        String[] scenarios = getResources().getStringArray(getResources().getIdentifier("sit" + situationIndex, "array", getPackageName()));
+        String[] options = getResources().getStringArray(getResources().getIdentifier("choices" + situationIndex, "array", getPackageName()));
+        String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + situationIndex, "array", getPackageName()));
+
+        // Отображение сценария
+        once_upon.setText(scenarios[0]);
+
+        // Отображение вариантов выбора
+        ans_a.setText(options[0]);
+        ans_b.setText(options[1]);
+        ans_c.setText(options[2]);
+
+        // Обновление текущего индекса ситуации
+        currentSituationIndex = situationIndex;
+    }
+
+    private void handleOptionClick(int optionIndex) {
+        // Получение массива историй из ресурсов
+        String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
+
+        // Отображение истории в зависимости от выбора
+        once_upon.setText(stories[optionIndex]);
+    }
+
 
     protected void onPause(){
         super.onPause();
