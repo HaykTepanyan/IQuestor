@@ -2,6 +2,7 @@ package com.example.iquestor;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,7 +25,7 @@ public class PlayActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
     private ImageButton playButton;
     private boolean isPlaying = false;
-    private int currentSituationIndex = 0;
+    private int currentSituationIndex = 1;
     TextView once_upon;
     TextView ans_a;
     TextView ans_b;
@@ -91,7 +92,6 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
-        updateSituation(currentSituationIndex);
 
         once_upon = findViewById(R.id.situation_text_view);
         ans_a = findViewById(R.id.version1_text_view);
@@ -102,7 +102,7 @@ public class PlayActivity extends AppCompatActivity {
         once_upon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                once_upon.setText(getResources().getString(R.string.zvaniyaStory));
+                updateSituation(currentSituationIndex);
             }
         });
 
@@ -110,46 +110,64 @@ public class PlayActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 handleOptionClick(1);
+                currentSituationIndex++;
             }
         });
         ans_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 handleOptionClick(2);
+                currentSituationIndex++;
             }
         });
         ans_c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 handleOptionClick(3);
+                currentSituationIndex++;
             }
         });
     }
 
     private void updateSituation(int situationIndex) {
-        // Получение массивов из ресурсов
-        String[] scenarios = getResources().getStringArray(getResources().getIdentifier("sit" + situationIndex, "array", getPackageName()));
-        String[] options = getResources().getStringArray(getResources().getIdentifier("choices" + situationIndex, "array", getPackageName()));
-        String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + situationIndex, "array", getPackageName()));
-
-        // Отображение сценария
-        once_upon.setText(scenarios[0]);
-
-        // Отображение вариантов выбора
-        ans_a.setText(options[0]);
-        ans_b.setText(options[1]);
-        ans_c.setText(options[2]);
-
-        // Обновление текущего индекса ситуации
-        currentSituationIndex = situationIndex;
+        once_upon = findViewById(R.id.situation_text_view);
+        ans_a = findViewById(R.id.version1_text_view);
+        ans_b = findViewById(R.id.version2_text_view);
+        ans_c = findViewById(R.id.version3_text_view);
+        if (situationIndex == 0) {
+            // Если это начало игры, показываем начальный текст
+            once_upon.setText(R.string.startGameStory);
+            ans_a.setText("");
+            ans_b.setText("");
+            ans_c.setText("");
+        } else {
+            // Получение массивов из ресурсов
+            String[] scenarios = getResources().getStringArray(getResources().getIdentifier("sit", "array", getPackageName()));
+            String[] options = getResources().getStringArray(getResources().getIdentifier("choices" + situationIndex, "array", getPackageName()));
+            String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + situationIndex, "array", getPackageName()));
+            // Отображение сценария
+            once_upon.setText(scenarios[situationIndex - 1]);
+            // Отображение вариантов выбора
+            ans_a.setText(options[0]);
+            ans_b.setText(options[1]);
+            ans_c.setText(options[2]);
+            // Обновление текущего индекса ситуации
+            currentSituationIndex = situationIndex;
+        }
     }
+
+
 
     private void handleOptionClick(int optionIndex) {
         // Получение массива историй из ресурсов
         String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
 
         // Отображение истории в зависимости от выбора
-        once_upon.setText(stories[optionIndex]);
+        String storyResult = stories[optionIndex - 1];
+        once_upon.setText(storyResult);
+        ans_a.setText("");
+        ans_b.setText("");
+        ans_c.setText("");
     }
 
 
