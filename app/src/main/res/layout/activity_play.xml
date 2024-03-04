@@ -80,6 +80,7 @@
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
             android:text=""
+            android:visibility="invisible"
             android:textSize="20sp"
             android:padding="16dp"
             android:layout_marginTop="12dp"
@@ -92,6 +93,7 @@
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
             android:text=""
+            android:visibility="invisible"
             android:textSize="20sp"
             android:padding="16dp"
             android:layout_marginTop="12dp"
@@ -104,12 +106,25 @@
             android:layout_marginHorizontal="10dp"
             android:layout_height="wrap_content"
             android:text=""
+            android:visibility="gone"
             android:textSize="20sp"
             android:padding="16dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/version_border_corner"/>
 
-
+        <TextView
+            android:id="@+id/next_sit_button"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="80dp"
+            android:layout_height="wrap_content"
+            android:text="NEXT"
+            android:textAlignment="center"
+            android:visibility="visible"
+            android:textSize="20sp"
+            android:padding="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/version_border_corner"/>
 
     </LinearLayout>
 

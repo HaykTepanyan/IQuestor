@@ -7,6 +7,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class PlayActivity extends AppCompatActivity {
     TextView ans_b;
     TextView ans_c;
 
+    TextView next_sit;
 
 
 
@@ -92,14 +94,14 @@ public class PlayActivity extends AppCompatActivity {
             }
         });
 
-
+        next_sit = findViewById(R.id.next_sit_button);
         once_upon = findViewById(R.id.situation_text_view);
         ans_a = findViewById(R.id.version1_text_view);
         ans_b = findViewById(R.id.version2_text_view);
         ans_c = findViewById(R.id.version3_text_view);
 
 
-        once_upon.setOnClickListener(new View.OnClickListener() {
+        next_sit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 updateSituation(currentSituationIndex);
@@ -134,12 +136,14 @@ public class PlayActivity extends AppCompatActivity {
         ans_a = findViewById(R.id.version1_text_view);
         ans_b = findViewById(R.id.version2_text_view);
         ans_c = findViewById(R.id.version3_text_view);
+        next_sit = findViewById(R.id.next_sit_button);
         if (situationIndex == 0) {
             // Если это начало игры, показываем начальный текст
             once_upon.setText(R.string.startGameStory);
-            ans_a.setText("");
-            ans_b.setText("");
-            ans_c.setText("");
+            ans_a.setVisibility(View.INVISIBLE);
+            ans_b.setVisibility(View.INVISIBLE);
+            ans_c.setVisibility(View.GONE);
+            next_sit.setVisibility(View.VISIBLE);
         } else {
             // Получение массивов из ресурсов
             String[] scenarios = getResources().getStringArray(getResources().getIdentifier("sit", "array", getPackageName()));
@@ -148,6 +152,10 @@ public class PlayActivity extends AppCompatActivity {
             // Отображение сценария
             once_upon.setText(scenarios[situationIndex - 1]);
             // Отображение вариантов выбора
+            ans_a.setVisibility(View.VISIBLE);
+            ans_b.setVisibility(View.VISIBLE);
+            ans_c.setVisibility(View.VISIBLE);
+            next_sit.setVisibility(View.GONE);
             ans_a.setText(options[0]);
             ans_b.setText(options[1]);
             ans_c.setText(options[2]);
@@ -165,9 +173,10 @@ public class PlayActivity extends AppCompatActivity {
         // Отображение истории в зависимости от выбора
         String storyResult = stories[optionIndex - 1];
         once_upon.setText(storyResult);
-        ans_a.setText("");
-        ans_b.setText("");
-        ans_c.setText("");
+        ans_a.setVisibility(View.INVISIBLE);
+        ans_b.setVisibility(View.INVISIBLE);
+        ans_c.setVisibility(View.GONE);
+        next_sit.setVisibility(View.VISIBLE);
     }
 
 
