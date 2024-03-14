@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class PlayActivity extends AppCompatActivity {
+public class PlayActivity extends BaseActivity {
 
     ImageButton changeLangBtn;
     ImageButton logoutBtn;
@@ -26,7 +26,7 @@ public class PlayActivity extends AppCompatActivity {
     private MediaPlayer mediaPlayer;
     private ImageButton playButton;
     private boolean isPlaying = false;
-    private int currentSituationIndex = 1;
+    private int currentSituationIndex = 0;
     TextView once_upon;
     TextView ans_a;
     TextView ans_b;
@@ -40,6 +40,39 @@ public class PlayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
+
+
+
+        changeLangBtn = findViewById(R.id.language_btn);
+        if (changeLangBtn != null) {
+            changeLangBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String currentLanguage = getCurrentLanguage();
+
+                    if (currentLanguage.equals("en")) {
+                        setLocale("ru");
+                    } else {
+                        setLocale("en");
+                    }
+
+                    updateUI();
+                    next_sit = findViewById(R.id.next_sit_button);
+                    if (next_sit.getVisibility() == View.VISIBLE && currentSituationIndex != 0){
+                        nextBtnVisible();
+                        String newLanguage = getCurrentLanguage();
+                        saveLanguage(newLanguage);
+                    }else{
+                        updateStory(currentSituationIndex);
+                        String newLanguage = getCurrentLanguage();
+                        saveLanguage(newLanguage);
+                    }
+                }
+
+            });
+        }else {
+            Log.e("LanguageButton", "Button is null");
+        }
 
         mediaPlayer = MediaPlayer.create(this, R.raw.sound);
         playButton = findViewById(R.id.volume_up_btn);
@@ -104,7 +137,12 @@ public class PlayActivity extends AppCompatActivity {
         next_sit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateSituation(currentSituationIndex);
+                if (currentSituationIndex == 0) {
+                    currentSituationIndex++;
+                    updateSituation(currentSituationIndex);
+                }else{
+                    updateSituation(currentSituationIndex);
+                }
             }
         });
 
@@ -162,21 +200,6 @@ public class PlayActivity extends AppCompatActivity {
             // Обновление текущего индекса ситуации
             currentSituationIndex = situationIndex;
         }
-    }
-
-
-
-    private void handleOptionClick(int optionIndex) {
-        // Получение массива историй из ресурсов
-        String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
-
-        // Отображение истории в зависимости от выбора
-        String storyResult = stories[optionIndex - 1];
-        once_upon.setText(storyResult);
-        ans_a.setVisibility(View.INVISIBLE);
-        ans_b.setVisibility(View.INVISIBLE);
-        ans_c.setVisibility(View.GONE);
-        next_sit.setVisibility(View.VISIBLE);
     }
 
 

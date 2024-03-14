@@ -118,7 +118,7 @@
             android:textStyle="bold"
             android:layout_marginHorizontal="80dp"
             android:layout_height="wrap_content"
-            android:text="NEXT"
+            android:text="@string/nextSitRes"
             android:textAlignment="center"
             android:visibility="visible"
             android:textSize="20sp"
