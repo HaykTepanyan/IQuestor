@@ -38,7 +38,7 @@ public class BaseActivity extends AppCompatActivity {
     TextView auTeacherBtn;
     TextView auMailBtn;
     TextView auPhoneBtn;
-
+    int situation_Index;
     TextView htpChangeLangBtn;
     TextView htpChangeLangGuideBtn;
     TextView htpControlSoundsBtn;
@@ -109,6 +109,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public void updateStory(int situationIndex) {
+        currentSituationIndex = situation_Index;
         once_upon = findViewById(R.id.situation_text_view);
         ans_a = findViewById(R.id.version1_text_view);
         ans_b = findViewById(R.id.version2_text_view);
@@ -137,11 +138,13 @@ public class BaseActivity extends AppCompatActivity {
             ans_b.setText(options[1]);
             ans_c.setText(options[2]);
             // Обновление текущего индекса ситуации
-            currentSituationIndex = situationIndex;
+
+            situation_Index = situationIndex;
         }
     }
 
     void handleOptionClick(int optionIndex) {
+        currentSituationIndex = situation_Index;
         // Получение массива историй из ресурсов
         String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
 
@@ -153,6 +156,8 @@ public class BaseActivity extends AppCompatActivity {
         ans_b.setVisibility(View.INVISIBLE);
         ans_c.setVisibility(View.GONE);
         next_sit.setVisibility(View.VISIBLE);
+        situation_Index++;
+
     }
 
     void nextBtnVisible() {
@@ -160,12 +165,13 @@ public class BaseActivity extends AppCompatActivity {
         String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
 
         // Отображение истории в зависимости от выбора
-        String storyResult = stories[currentSituationIndex];
+        String storyResult = stories[optionCurrentIndex];
         once_upon.setText(storyResult);
         ans_a.setVisibility(View.INVISIBLE);
         ans_b.setVisibility(View.INVISIBLE);
         ans_c.setVisibility(View.GONE);
         next_sit.setVisibility(View.VISIBLE);
+
 
     }
 

@@ -149,22 +149,25 @@ public class PlayActivity extends BaseActivity {
         ans_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handleOptionClick(1);
                 currentSituationIndex++;
+                handleOptionClick(1);
+
             }
         });
         ans_b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handleOptionClick(2);
                 currentSituationIndex++;
+                handleOptionClick(2);
+
             }
         });
         ans_c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                handleOptionClick(3);
                 currentSituationIndex++;
+                handleOptionClick(3);
+
             }
         });
     }
