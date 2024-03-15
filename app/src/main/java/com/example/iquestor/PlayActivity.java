@@ -174,8 +174,6 @@ public class PlayActivity extends BaseActivity {
 
 
 
-
-
     protected void onPause(){
         super.onPause();
         if (mediaPlayer != null && mediaPlayer.isPlaying()){
