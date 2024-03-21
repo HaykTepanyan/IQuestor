@@ -1,5 +1,6 @@
 package com.example.iquestor;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -103,7 +104,8 @@ public class BaseActivity extends AppCompatActivity {
         TextView next_sit = findViewById(R.id.next_sit_button);
         setTextSafely(next_sit, R.string.nextSitRes);
 
-
+        TextView finish_game = findViewById(R.id.finish_game_btn);
+        setTextSafely(finish_game, R.string.nextSitRes1);
 
         setLocale(getCurrentLanguage());
     }
@@ -145,18 +147,78 @@ public class BaseActivity extends AppCompatActivity {
 
     void handleOptionClick(int optionIndex) {
         currentSituationIndex = situation_Index;
-        // Получение массива историй из ресурсов
-        String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
+        TextView finish_game = findViewById(R.id.finish_game_btn);
+        if ((currentSituationIndex == 1 && optionIndex == 3) || (currentSituationIndex == 2 && (optionIndex == 1 || optionIndex == 3)) || (currentSituationIndex == 3 && optionIndex == 2) || (currentSituationIndex == 4 && optionIndex == 2) || (currentSituationIndex == 5 && (optionIndex == 1 || optionIndex == 3))){
+            // Получение массива историй из ресурсов
+            String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
+            // Отображение истории в зависимости от выбора
+            String storyResult = stories[optionIndex - 1];
+            optionCurrentIndex = optionIndex - 1;
+            once_upon.setText(storyResult);
+            ans_a.setVisibility(View.INVISIBLE);
+            ans_b.setVisibility(View.INVISIBLE);
+            ans_c.setVisibility(View.GONE);
+            next_sit.setVisibility(View.GONE);
+            finish_game.setVisibility(View.VISIBLE);
+            finish_game.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(String.valueOf(PlayActivity.class)));
+                }
+            });
 
-        // Отображение истории в зависимости от выбора
-        String storyResult = stories[optionIndex - 1];
-        optionCurrentIndex = optionIndex - 1;
-        once_upon.setText(storyResult);
-        ans_a.setVisibility(View.INVISIBLE);
-        ans_b.setVisibility(View.INVISIBLE);
-        ans_c.setVisibility(View.GONE);
-        next_sit.setVisibility(View.VISIBLE);
-        situation_Index++;
+        }else if((currentSituationIndex == 6 && optionIndex == 1) || (currentSituationIndex == 7 && optionIndex == 3) || (currentSituationIndex == 8 && optionIndex == 3) || (currentSituationIndex == 9 && optionIndex == 3) || (currentSituationIndex == 12 && (optionIndex == 2 || optionIndex == 3))){
+            // Получение массива историй из ресурсов
+            String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
+            // Отображение истории в зависимости от выбора
+            String storyResult = stories[optionIndex - 1];
+            optionCurrentIndex = optionIndex - 1;
+            once_upon.setText(storyResult);
+            ans_a.setVisibility(View.INVISIBLE);
+            ans_b.setVisibility(View.INVISIBLE);
+            ans_c.setVisibility(View.GONE);
+            next_sit.setVisibility(View.GONE);
+            finish_game.setVisibility(View.VISIBLE);
+            finish_game.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(String.valueOf(PlayActivity.class)));
+                }
+            });
+        }else if(currentSituationIndex == 13 && (optionIndex == 1 || optionIndex == 3 || optionIndex == 2)){
+            // Получение массива историй из ресурсов
+            String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
+            // Отображение истории в зависимости от выбора
+            String storyResult = stories[optionIndex - 1];
+            optionCurrentIndex = optionIndex - 1;
+            once_upon.setText(storyResult);
+            ans_a.setVisibility(View.INVISIBLE);
+            ans_b.setVisibility(View.INVISIBLE);
+            ans_c.setVisibility(View.GONE);
+            next_sit.setVisibility(View.GONE);
+            finish_game.setVisibility(View.VISIBLE);
+            finish_game.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(String.valueOf(PlayActivity.class)));
+                }
+            });
+        }else{
+            // Получение массива историй из ресурсов
+            String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
+
+            // Отображение истории в зависимости от выбора
+            String storyResult = stories[optionIndex - 1];
+            optionCurrentIndex = optionIndex - 1;
+            once_upon.setText(storyResult);
+            ans_a.setVisibility(View.INVISIBLE);
+            ans_b.setVisibility(View.INVISIBLE);
+            ans_c.setVisibility(View.GONE);
+            next_sit.setVisibility(View.VISIBLE);
+            finish_game.setVisibility(View.GONE);
+            situation_Index++;
+        }
+
 
     }
 
@@ -172,6 +234,21 @@ public class BaseActivity extends AppCompatActivity {
         ans_c.setVisibility(View.GONE);
         next_sit.setVisibility(View.VISIBLE);
 
+    }
+
+    void finishBtnVisible() {
+        TextView finish_btn = findViewById(R.id.finish_game_btn);
+        // Получение массива историй из ресурсов
+        String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
+
+        // Отображение истории в зависимости от выбора
+        String storyResult = stories[optionCurrentIndex];
+        once_upon.setText(storyResult);
+        ans_a.setVisibility(View.INVISIBLE);
+        ans_b.setVisibility(View.INVISIBLE);
+        ans_c.setVisibility(View.GONE);
+        next_sit.setVisibility(View.GONE);
+        finish_btn.setVisibility(View.VISIBLE);
 
     }
 

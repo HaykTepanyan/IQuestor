@@ -28,6 +28,7 @@
     <string name="startGameStory">Hello, youve turned 18 and joined the army! Your rank is Private. To rise in rank, you need to follow the right path by making various choices! (Tap here to continue)</string>
     <string name="zvaniyaStory">(All ranks - Private, Lance Corporal, Junior Sergeant, Sergeant, Staff Sergeant, Warrant Officer, Staff Warrant Officer, Junior Lieutenant, Senior Lieutenant, Captain, Major, Colonel, Major General, General.) (Tap here to continue)</string>
     <string name="nextSitRes">NEXT</string>
+    <string name="nextSitRes1">FINISH</string>
 
     <string-array name="stories1">
         <item>The Sergeant noticed you during cleanup and praised you. The next day, you took the oath and became {rank + 1}!</item>

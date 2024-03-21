@@ -17,7 +17,7 @@
 
 
     <string name="act_main_play_res">ИГРАТЬ</string>
-    <string name="act_main_reset_progress_res">НАЧАТЬ ЗАНОГО</string>
+    <string name="act_main_reset_progress_res">НАЧАТЬ ЗАНОВО</string>
     <string name="act_main_htp_res">КАК ИГРАТЬ?</string>
     <string name="act_main_about_us_res">О НАС</string>
 
@@ -25,6 +25,7 @@
     <string name="startGameStory">Привет, тебе исполнилось 18 лет, и ты попал в армию! Твоё звание - рядовой. Чтобы подняться в звании, нужно идти правильным путём, выполняя различные выборы! (Нажми сюда чтобы продолжить)</string>
     <string name="zvaniyaStory">(Все звания - Рядовой, Ефрейтор, Мл Сержант, Сержант, Ст Сержант, Прапорщик, Ст Прапорщик, Мл Лейтенант, Ст Лейтенант, Капитан, Майор, Полковник, Генерал Майор, Генерал.) (Нажми сюда чтобы продолжить)</string>
     <string name="nextSitRes">СЛЕД</string>
+    <string name="nextSitRes1">КОНЕЦ</string>
 
     <string-array name="stories1">
         <item>Сержант заметил тебя во время уборки и похвалил. На следующий день ты сдал присягу и стал {звание + 1}!</item>

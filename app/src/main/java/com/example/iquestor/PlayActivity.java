@@ -58,8 +58,13 @@ public class PlayActivity extends BaseActivity {
 
                     updateUI();
                     next_sit = findViewById(R.id.next_sit_button);
+                    TextView finish_game1 = findViewById(R.id.finish_game_btn);
                     if (next_sit.getVisibility() == View.VISIBLE && currentSituationIndex != 0){
                         nextBtnVisible();
+                        String newLanguage = getCurrentLanguage();
+                        saveLanguage(newLanguage);
+                    }else if(finish_game1.getVisibility() == View.VISIBLE && currentSituationIndex != 0){
+                        finishBtnVisible();
                         String newLanguage = getCurrentLanguage();
                         saveLanguage(newLanguage);
                     }else{

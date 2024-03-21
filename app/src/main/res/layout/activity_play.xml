@@ -126,6 +126,20 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/version_border_corner"/>
 
+        <TextView
+            android:id="@+id/finish_game_btn"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:layout_marginHorizontal="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/nextSitRes1"
+            android:textAlignment="center"
+            android:visibility="gone"
+            android:textSize="20sp"
+            android:padding="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/version_border_corner"/>
+
     </LinearLayout>
 
 </RelativeLayout>
