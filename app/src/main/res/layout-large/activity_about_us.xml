@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@drawable/background"
     android:layout_height="match_parent">
 
 
@@ -55,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title_bar_layout"
         android:id="@+id/game_name_text_view"
-        android:textColor="#737D49"
+        android:textColor="@color/brown"
         android:textSize="80sp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/major_shift"

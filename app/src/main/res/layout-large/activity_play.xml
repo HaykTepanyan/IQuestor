@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@drawable/background"
     android:layout_height="match_parent">
 
     <RelativeLayout
@@ -115,9 +116,11 @@
             android:id="@+id/next_sit_button"
             android:layout_width="match_parent"
             android:textStyle="bold"
+            android:textColor="@color/chocolate"
             android:layout_marginHorizontal="190dp"
             android:layout_height="wrap_content"
             android:text="@string/nextSitRes"
+            android:fontFamily="@font/game_sans_serif_7"
             android:textAlignment="center"
             android:visibility="visible"
             android:textSize="50sp"

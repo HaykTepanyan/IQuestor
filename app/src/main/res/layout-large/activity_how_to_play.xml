@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@drawable/background"
+
     android:layout_height="match_parent">
 
 
@@ -55,13 +57,15 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title_bar_layout"
         android:id="@+id/game_name_text_view"
-        android:textColor="#737D49"
+        android:textColor="@color/brown"
         android:textSize="70sp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/major_shift"
         android:text="@string/app_name"/>
 
     <TextView
+        android:fontFamily="@font/game_sans_serif_7"
+
         android:id="@+id/htp_change_lang_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,7 +84,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/htp_change_lang_text"
         android:text="@string/htp_ht_change_lang_text_res"
-        android:textStyle="italic"
         android:textSize="25sp"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="4dp"
@@ -89,6 +92,8 @@
 
 
     <TextView
+        android:fontFamily="@font/game_sans_serif_7"
+
         android:id="@+id/htp_change_volume_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -107,7 +112,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/htp_change_volume_text"
         android:text="@string/htp_ht_control_sounds_text_res"
-        android:textStyle="italic"
         android:textSize="25sp"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="5dp"
@@ -115,6 +119,8 @@
     </TextView>
 
     <TextView
+        android:fontFamily="@font/game_sans_serif_7"
+
         android:id="@+id/htp_change_acc_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -133,7 +139,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/htp_change_acc_text"
         android:text="@string/htp_ht_change_acc_text_res"
-        android:textStyle="italic"
         android:textSize="25sp"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="5dp"
@@ -141,6 +146,8 @@
     </TextView>
 
     <TextView
+        android:fontFamily="@font/game_sans_serif_7"
+
         android:id="@+id/htp_about_us_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -159,7 +166,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/htp_about_us_text"
         android:text="@string/htp_ht_about_game_text_res"
-        android:textStyle="italic"
         android:textSize="25sp"
         android:layout_marginHorizontal="40dp"
         android:layout_marginTop="5dp"

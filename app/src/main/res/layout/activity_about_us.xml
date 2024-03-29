@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="@drawable/background"
     android:layout_height="match_parent">
 
 
@@ -55,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title_bar_layout"
         android:id="@+id/game_name_text_view"
-        android:textColor="#737D49"
+        android:textColor="@color/brown"
         android:textSize="70sp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/major_shift"
@@ -85,21 +86,7 @@
         android:textSize="23sp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60dp"
-        >
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/about_us_phone_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/about_us_phone_res"
-        android:textStyle="bold|italic"
-        android:textSize="23sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/about_us_mail_text"
-        android:layout_marginTop="-65dp"
+        android:layout_marginBottom="30dp"
         >
 
     </TextView>

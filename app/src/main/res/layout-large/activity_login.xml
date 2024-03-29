@@ -35,9 +35,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Welcome Back"
+            android:textColor="@color/chocolate"
             android:textStyle="bold"
             android:textSize="46sp"
-            android:textColor="@color/black"/>
+            />
 
     </LinearLayout>
 
@@ -77,6 +78,8 @@
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:text="Login"
+            android:backgroundTint="@color/green"
+
             android:layout_marginTop="18dp"
             android:paddingVertical="12dp"
             android:textSize="30sp"
@@ -101,11 +104,14 @@
         android:gravity="center">
 
         <TextView
+            android:textSize="32dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Don't have an account? "/>
 
         <TextView
+            android:textSize="32dp"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -122,11 +128,15 @@
         android:gravity="center">
 
         <TextView
+            android:textSize="32dp"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Do you wanna play in guest mode? "/>
 
         <TextView
+            android:textSize="32dp"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"

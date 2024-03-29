@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="my_primary">#bdb76b</color>
+    <color name="my_primary">#C6A969</color>
 
 
     <color name="brown">#675645</color>
-    <color name="green">#4d784e</color>
+    <color name="green">#597E52</color>
     <color name="black">#1c222e</color>
     <color name="white">#FFFFFFFF</color>
-
+    <color name="chocolate">#3F2305</color>
     <color name="teal_200">#41533b</color>
     <color name="teal_700">#604439</color>
 </resources>

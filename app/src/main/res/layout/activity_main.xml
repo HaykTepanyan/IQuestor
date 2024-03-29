@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <RelativeLayout
@@ -18,7 +19,7 @@
             android:src="@drawable/baseline_language_24"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:backgroundTint="#424756"
+            android:backgroundTint="@color/brown"
             android:background="?attr/selectableItemBackgroundBorderless"
 
             />
@@ -55,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title_bar_layout"
         android:id="@+id/game_name_text_view"
-        android:textColor="#737D49"
+        android:textColor="@color/brown"
         android:textSize="70sp"
         android:layout_centerHorizontal="true"
         android:fontFamily="@font/major_shift"
@@ -72,14 +73,19 @@
         android:layout_marginVertical="110dp">
 
         <Button
+            android:fontFamily="@font/game_ring_demo_regular"
             android:id="@+id/play_btn"
+
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:text="@string/act_main_play_res"
-            android:textSize="29dp"
+            android:textSize="30dp"
             android:textStyle="bold"/>
 
         <Button
+            android:fontFamily="@font/game_ring_demo_regular"
+            android:layout_marginTop="15dp"
+
             android:id="@+id/reset_btn"
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -88,6 +94,9 @@
             android:textStyle="bold"/>
 
         <Button
+            android:fontFamily="@font/game_ring_demo_regular"
+            android:layout_marginTop="15dp"
+
             android:id="@+id/how_to_play_btn"
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -96,6 +105,9 @@
             android:textStyle="bold"/>
 
         <Button
+            android:fontFamily="@font/game_ring_demo_regular"
+            android:layout_marginTop="15dp"
+
             android:id="@+id/about_us_btn"
             android:layout_width="match_parent"
             android:layout_height="80dp"

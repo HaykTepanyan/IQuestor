@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundgame">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -121,8 +122,11 @@
             android:text="@string/nextSitRes"
             android:textAlignment="center"
             android:visibility="visible"
+            android:fontFamily="@font/game_sans_serif_7"
             android:textSize="20sp"
+            android:textColor="@color/chocolate"
             android:padding="16dp"
+            android:backgroundTint="#FFFFEC"
             android:layout_marginTop="20dp"
             android:background="@drawable/version_border_corner"/>
 
