@@ -30,20 +30,37 @@
     <string name="nextSitRes">NEXT</string>
     <string name="nextSitRes1">FINISH</string>
 
+    <string-array name="ranks">
+        <item>Private</item>
+        <item>Corporal</item>
+        <item>Junior Sergeant</item>
+        <item>Sergeant</item>
+        <item>Staff Sergeant</item>
+        <item>Warrant Officer</item>
+        <item>Staff Warrant Officer</item>
+        <item>Junior Lieutenant</item>
+        <item>Lieutenant</item>
+        <item>Captain</item>
+        <item>Major</item>
+        <item>Colonel</item>
+        <item>Major General</item>
+        <item>General</item>
+    </string-array>
+
     <string-array name="stories1">
-        <item>The Sergeant noticed you during cleanup and praised you. The next day, you took the oath and became {rank + 1}!</item>
+        <item>The Sergeant noticed you during cleanup and praised you. The next day, you took the oath and became {rank}!</item>
         <item>After cleanup, the Sergeant noticed you did nothing and reported you to the Warrant Officer. You were punished.</item>
         <item>Times have changed. Youve been sent to prison. Defeat at the rank of {rank}.</item>
     </string-array>
 
     <string-array name="stories2">
         <item>You accidentally bumped into the Junior Sergeant, and you were sent to prison. Defeat at the rank of {rank}.</item>
-        <item>You hit all the targets. The Senior Lieutenant noticed you, and you became {rank + 1}.</item>
+        <item>You hit all the targets. The Senior Lieutenant noticed you, and you became {rank}.</item>
         <item>You were shot for treason against the homeland. Defeat at the rank of {rank}.</item>
     </string-array>
 
     <string-array name="stories3">
-        <item>The Captain came and saw your actions. He thanked you, and the next day, your rank was raised. You became {rank + 1}.</item>
+        <item>The Captain came and saw your actions. He thanked you, and the next day, your rank was raised. You became {rank}.</item>
         <item>You were all sent to prison. Defeat at the rank of {rank}.</item>
         <item>Everyone involved in the brawl was sent to prison, while you went back to the barracks.</item>
     </string-array>
@@ -56,48 +73,48 @@
 
     <string-array name="stories5">
         <item>You were surrounded. All soldiers perished. Defeat at the rank of {rank}.</item>
-        <item>You managed to hold out for a while, and reinforcements arrived. You repelled the first attack, and your rank was raised to {rank + 1}.</item>
+        <item>You managed to hold out for a while, and reinforcements arrived. You repelled the first attack, and your rank was raised to {rank}.</item>
         <item>You were killed. Defeat at the rank of {rank}.</item>
     </string-array>
 
     <string-array name="stories6">
         <item>You marched into certain death. Defeat at the rank of {rank}.</item>
-        <item>You returned to the trenches, where you found mortars. You destroyed all tanks, and your rank was raised to {rank + 1}.</item>
-        <item>The tanks passed you by, and then you successfully destroyed them from behind. You were promoted to the rank of {rank + 1}.</item>
+        <item>You returned to the trenches, where you found mortars. You destroyed all tanks, and your rank was raised to {rank}.</item>
+        <item>The tanks passed you by, and then you successfully destroyed them from behind. You were promoted to the rank of {rank}.</item>
     </string-array>
 
     <string-array name="stories7">
-        <item>You retreated and surrendered the land. The Major General turned out to be a traitor, and he was killed. Your rank was demoted to {rank - 1}.</item>
-        <item>The Major General turned out to be a traitor, and he was killed. You were promoted twice in rank, and you became {rank + 2}.</item>
+        <item>You retreated and surrendered the land. The Major General turned out to be a traitor, and he was killed. Your rank was demoted to {rank}.</item>
+        <item>The Major General turned out to be a traitor, and he was killed. You were promoted twice in rank, and you became {rank}.</item>
         <item>You were taken prisoner. Defeat at the rank of {rank}.</item>
     </string-array>
 
     <string-array name="stories8">
-        <item>You only shot down 1 aircraft, and the remaining planes killed three soldiers. Your rank was demoted twice to {rank - 2}.</item>
-        <item>You successfully shot down all aircraft. The mission was accomplished, so you were promoted to the rank of {rank + 1}.</item>
+        <item>You only shot down 1 aircraft, and the remaining planes killed three soldiers. Your rank was demoted twice to {rank}.</item>
+        <item>You successfully shot down all aircraft. The mission was accomplished, so you were promoted to the rank of {rank}.</item>
         <item>The aircraft prevented you from leaving the shelter, and you were surrounded. Defeat at the rank of {rank}.</item>
     </string-array>
 
     <string-array name="stories9">
-        <item>You broke through the defense but lost many soldiers. You were demoted by one rank to {rank - 1}.</item>
-        <item>You managed to pass unnoticed, avoiding contact with the enemy. For such skill, you were promoted to {rank + 1}.</item>
+        <item>You broke through the defense but lost many soldiers. You were demoted by one rank to {rank}.</item>
+        <item>You managed to pass unnoticed, avoiding contact with the enemy. For such skill, you were promoted to {rank}.</item>
         <item>The attempt to negotiate failed, and you were taken prisoner. Defeat at the rank of {rank}.</item>
     </string-array>
 
     <string-array name="stories10">
-        <item>You successfully attacked the enemy and took their positions. You were promoted to {rank + 1}.</item>
-        <item>The enemy proved to be stronger, and you were forced to retreat. You were demoted by one rank to {rank - 1}.</item>
+        <item>You successfully attacked the enemy and took their positions. You were promoted to {rank}.</item>
+        <item>The enemy proved to be stronger, and you were forced to retreat. You were demoted by one rank to {rank}.</item>
         <item>Your negotiations led to a temporary truce. You were left at your current rank.</item>
     </string-array>
 
     <string-array name="stories11">
-        <item>The covert mission was successful. You were promoted to {rank + 1}.</item>
-        <item>The sabotage operation led to significant disruptions behind enemy lines. You were promoted to {rank + 1}.</item>
+        <item>The covert mission was successful. You were promoted to {rank}.</item>
+        <item>The sabotage operation led to significant disruptions behind enemy lines. You were promoted to {rank}.</item>
         <item>You were transferred to another direction without a change in rank.</item>
     </string-array>
 
     <string-array name="stories12">
-        <item>You successfully organized the defense and repelled the enemy attack. You were promoted to {rank + 1}.</item>
+        <item>You successfully organized the defense and repelled the enemy attack. You were promoted to {rank}.</item>
         <item>You were killed during one of the operations. Defeat at the rank of {rank}.</item>
         <item>You were sent to prison for disobeying orders. Defeat at the rank of {rank}.</item>
     </string-array>

@@ -33,7 +33,7 @@ public class BaseActivity extends AppCompatActivity {
     Button playBtn;
     Button resetProgressBtn;
 
-
+    int rank;
     TextView auTextBtn;
     TextView auCreatorBtn;
     TextView auTeacherBtn;
@@ -148,11 +148,93 @@ public class BaseActivity extends AppCompatActivity {
     void handleOptionClick(int optionIndex) {
         currentSituationIndex = situation_Index;
         TextView finish_game = findViewById(R.id.finish_game_btn);
+        String[] ranks = getResources().getStringArray(R.array.ranks);
+        String currentLanguage = getCurrentLanguage();
+        switch (currentSituationIndex) {
+            case 1:
+                if (optionIndex == 1) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
+                break;
+            case 2:
+                if (optionIndex == 2) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
+                break;
+            case 3:
+                if (optionIndex == 1) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
+                break;
+            case 4:
+                if (optionIndex == 2) {
+                    rank = Math.max(rank - 1, 0);
+                }
+                break;
+            case 5:
+                if (optionIndex == 2) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
+                break;
+            case 6:
+                if (optionIndex == 2 || optionIndex == 3) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
+                break;
+            case 7:
+                if (optionIndex == 1) {
+                    rank = Math.max(rank - 1, 0);
+                } else if (optionIndex == 2) {
+                    rank = Math.min(rank + 2, ranks.length - 1);
+                }
+                break;
+            case 8:
+                if (optionIndex == 2) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                } else if (optionIndex == 1) {
+                    rank = Math.max(rank - 2, 0);
+                }
+                break;
+            case 9:
+                if (optionIndex == 2) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                } else if (optionIndex == 1) {
+                    rank = Math.max(rank - 1, 0);
+                }
+                break;
+            case 10:
+                if (optionIndex == 1) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                } else if (optionIndex == 2) {
+                    rank = Math.max(rank - 1, 0);
+                }
+                break;
+            case 11:
+                if (optionIndex == 1 || optionIndex == 2) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
+                break;
+            case 12:
+                if (optionIndex == 1) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
+                break;
+            case 13:
+                break;
+            default:
+                break;
+        }
+
         if ((currentSituationIndex == 1 && optionIndex == 3) || (currentSituationIndex == 2 && (optionIndex == 1 || optionIndex == 3)) || (currentSituationIndex == 3 && optionIndex == 2) || (currentSituationIndex == 4 && optionIndex == 2) || (currentSituationIndex == 5 && (optionIndex == 1 || optionIndex == 3))){
             // Получение массива историй из ресурсов
             String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
             // Отображение истории в зависимости от выбора
-            String storyResult = stories[optionIndex - 1];
+            String storyResult;
+            if (currentLanguage.equals("ru")) {
+                storyResult = stories[optionIndex - 1].replace("{звание}", String.valueOf(ranks[rank]));
+            } else {
+                storyResult = stories[optionIndex - 1].replace("{rank}", String.valueOf(ranks[rank]));
+            }
             optionCurrentIndex = optionIndex - 1;
             once_upon.setText(storyResult);
             ans_a.setVisibility(View.INVISIBLE);
@@ -171,7 +253,12 @@ public class BaseActivity extends AppCompatActivity {
             // Получение массива историй из ресурсов
             String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
             // Отображение истории в зависимости от выбора
-            String storyResult = stories[optionIndex - 1];
+            String storyResult;
+            if (currentLanguage.equals("ru")) {
+                storyResult = stories[optionIndex - 1].replace("{звание}", String.valueOf(ranks[rank]));
+            } else {
+                storyResult = stories[optionIndex - 1].replace("{rank}", String.valueOf(ranks[rank]));
+            }
             optionCurrentIndex = optionIndex - 1;
             once_upon.setText(storyResult);
             ans_a.setVisibility(View.INVISIBLE);
@@ -189,7 +276,12 @@ public class BaseActivity extends AppCompatActivity {
             // Получение массива историй из ресурсов
             String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
             // Отображение истории в зависимости от выбора
-            String storyResult = stories[optionIndex - 1];
+            String storyResult;
+            if (currentLanguage.equals("ru")) {
+                storyResult = stories[optionIndex - 1].replace("{звание}", String.valueOf(ranks[rank]));
+            } else {
+                storyResult = stories[optionIndex - 1].replace("{rank}", String.valueOf(ranks[rank]));
+            }
             optionCurrentIndex = optionIndex - 1;
             once_upon.setText(storyResult);
             ans_a.setVisibility(View.INVISIBLE);
@@ -208,7 +300,12 @@ public class BaseActivity extends AppCompatActivity {
             String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
 
             // Отображение истории в зависимости от выбора
-            String storyResult = stories[optionIndex - 1];
+            String storyResult;
+            if (currentLanguage.equals("ru")) {
+                storyResult = stories[optionIndex - 1].replace("{звание}", String.valueOf(ranks[rank]));
+            } else {
+                storyResult = stories[optionIndex - 1].replace("{rank}", String.valueOf(ranks[rank]));
+            }
             optionCurrentIndex = optionIndex - 1;
             once_upon.setText(storyResult);
             ans_a.setVisibility(View.INVISIBLE);
@@ -225,9 +322,15 @@ public class BaseActivity extends AppCompatActivity {
     void nextBtnVisible() {
         // Получение массива историй из ресурсов
         String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
-
+        String[] ranks = getResources().getStringArray(R.array.ranks);
         // Отображение истории в зависимости от выбора
-        String storyResult = stories[optionCurrentIndex];
+        String currentLanguage = getCurrentLanguage();
+        String storyResult;
+        if (currentLanguage.equals("ru")) {
+            storyResult = stories[optionCurrentIndex].replace("{звание}", String.valueOf(ranks[rank]));
+        } else {
+            storyResult = stories[optionCurrentIndex].replace("{rank}", String.valueOf(ranks[rank]));
+        }
         once_upon.setText(storyResult);
         ans_a.setVisibility(View.INVISIBLE);
         ans_b.setVisibility(View.INVISIBLE);
