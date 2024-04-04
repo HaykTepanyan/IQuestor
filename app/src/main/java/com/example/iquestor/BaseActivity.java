@@ -35,10 +35,7 @@ public class BaseActivity extends AppCompatActivity {
 
     int rank;
     TextView auTextBtn;
-    TextView auCreatorBtn;
-    TextView auTeacherBtn;
     TextView auMailBtn;
-    TextView auPhoneBtn;
     int situation_Index;
     TextView htpChangeLangBtn;
     TextView htpChangeLangGuideBtn;
@@ -74,14 +71,8 @@ public class BaseActivity extends AppCompatActivity {
         setTextSafely(resetProgressBtn, R.string.act_main_reset_progress_res);
 
         auMailBtn = findViewById(R.id.about_us_mail_text);
-        auCreatorBtn = findViewById(R.id.about_us_creator_text);
-        auTeacherBtn = findViewById(R.id.about_us_teacher_text);
-        auPhoneBtn = findViewById(R.id.about_us_phone_text);
         auTextBtn = findViewById(R.id.about_us_text);
         setTextSafely(auMailBtn, R.string.about_us_mail_res);
-        setTextSafely(auCreatorBtn, R.string.about_us_creator_res);
-        setTextSafely(auTeacherBtn, R.string.about_us_teacher_res);
-        setTextSafely(auPhoneBtn, R.string.about_us_phone_res);
         setTextSafely(auTextBtn, R.string.about_us_text_res);
 
         htpChangeLangBtn = findViewById(R.id.htp_change_lang_text);

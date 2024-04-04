@@ -4,10 +4,6 @@
 
     <string name="about_us_text_res">Hello, you are being greeted by the creator of the "IQuestor" application. This application is a quest game in which you have to go through the path of a soldier, making various choices that will directly effect the continuation of the game. The main goal is to rise from private to general.</string>
     <string name="about_us_mail_res">Mail: tepanyanhayk@gmail.com</string>
-    <string name="about_us_phone_res">Phone: +374 (33)–52–74-77</string>
-    <string name="about_us_creator_res">Created by: Hayk Tepanyan</string>
-    <string name="about_us_teacher_res">Teacher: Mikayel Elizbaryan</string>
-
 
     <string name="htp_ht_change_lang_res">1) How to change language?</string>
     <string name="htp_ht_change_lang_text_res">At the very top left, there is an icon that looks like a planet, and if you click on it, a window will appear in which you must select which language you want to change the game interface to. In Russian, or in English.</string>
@@ -21,12 +17,12 @@
 
     <string name="act_main_play_res">PLAY</string>
     <string name="act_main_reset_progress_res">RESET PROGRESS</string>
-    <string name="act_main_htp_res">HOW TO PLAY?</string>
+    <string name="act_main_htp_res">HOW TO PLAY</string>
     <string name="act_main_about_us_res">ABOUT US</string>
 
 
-    <string name="startGameStory">Hello, youve turned 18 and joined the army! Your rank is Private. To rise in rank, you need to follow the right path by making various choices! (Tap here to continue)</string>
-    <string name="zvaniyaStory">(All ranks - Private, Lance Corporal, Junior Sergeant, Sergeant, Staff Sergeant, Warrant Officer, Staff Warrant Officer, Junior Lieutenant, Senior Lieutenant, Captain, Major, Colonel, Major General, General.) (Tap here to continue)</string>
+    <string name="startGameStory">Hello, youve turned 18 and joined the army! Your rank is Private. To rise in rank, you need to follow the right path by making various choices!</string>
+    <string name="zvaniyaStory">(All ranks - Private, Lance Corporal, Junior Sergeant, Sergeant, Staff Sergeant, Warrant Officer, Staff Warrant Officer, Junior Lieutenant, Senior Lieutenant, Captain, Major, Colonel, Major General, General.)</string>
     <string name="nextSitRes">NEXT</string>
     <string name="nextSitRes1">FINISH</string>
 

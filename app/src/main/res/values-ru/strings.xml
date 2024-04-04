@@ -1,9 +1,6 @@
 <resources>
     <string name="about_us_text_res">Здравствуйте, Вас приветствует создатель приложения IQuestor. Это приложение представляет из себя игру-квест, в которой вам предстоит пройти путь солдата, делая различные выборы, которые напрямую повлияют на продолжение игры. Основная цель – подняться от рядового до генерала.</string>
     <string name="about_us_mail_res">Почта: tepanyanhayk@gmail.com</string>
-    <string name="about_us_phone_res">Телефон: +374 (33)-52-74-77</string>
-    <string name="about_us_creator_res">Создатель: Айк Тепанян</string>
-    <string name="about_us_teacher_res">Учитель: Микаель Элизбарян</string>
 
 
     <string name="htp_ht_change_lang_res">1) Как поменять язык?</string>
@@ -18,12 +15,12 @@
 
     <string name="act_main_play_res">ИГРАТЬ</string>
     <string name="act_main_reset_progress_res">НАЧАТЬ ЗАНОВО</string>
-    <string name="act_main_htp_res">КАК ИГРАТЬ?</string>
+    <string name="act_main_htp_res">КАК ИГРАТЬ</string>
     <string name="act_main_about_us_res">О НАС</string>
 
 
-    <string name="startGameStory">Привет, тебе исполнилось 18 лет, и ты попал в армию! Твоё звание - рядовой. Чтобы подняться в звании, нужно идти правильным путём, выполняя различные выборы! (Нажми сюда чтобы продолжить)</string>
-    <string name="zvaniyaStory">(Все звания - Рядовой, Ефрейтор, Мл Сержант, Сержант, Ст Сержант, Прапорщик, Ст Прапорщик, Мл Лейтенант, Ст Лейтенант, Капитан, Майор, Полковник, Генерал Майор, Генерал.) (Нажми сюда чтобы продолжить)</string>
+    <string name="startGameStory">Привет, тебе исполнилось 18 лет, и ты попал в армию! Твоё звание - рядовой. Чтобы подняться в звании, нужно идти правильным путём, выполняя различные выборы!</string>
+    <string name="zvaniyaStory">(Все звания - Рядовой, Ефрейтор, Мл Сержант, Сержант, Ст Сержант, Прапорщик, Ст Прапорщик, Мл Лейтенант, Ст Лейтенант, Капитан, Майор, Полковник, Генерал Майор, Генерал.)</string>
     <string name="nextSitRes">СЛЕД</string>
     <string name="nextSitRes1">КОНЕЦ</string>
 

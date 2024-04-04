@@ -105,32 +105,5 @@
 
     </TextView>
 
-    <TextView
-        android:id="@+id/about_us_creator_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/about_us_creator_res"
-        android:textStyle="bold|italic"
-        android:textSize="25sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginVertical="180dp"
-        >
-
-    </TextView>
-
-    <TextView
-        android:id="@+id/about_us_teacher_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/about_us_teacher_res"
-        android:textStyle="bold|italic"
-        android:textSize="25sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginVertical="155dp"
-        >
-
-    </TextView>
 
 </RelativeLayout>
