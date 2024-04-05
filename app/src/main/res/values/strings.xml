@@ -28,17 +28,34 @@
 
     <string-array name="ranks">
         <item>Private</item>
+        <item>Specialist</item>
         <item>Corporal</item>
-        <item>Junior Sergeant</item>
         <item>Sergeant</item>
         <item>Staff Sergeant</item>
-        <item>Warrant Officer</item>
-        <item>Staff Warrant Officer</item>
+        <item>Master Sergeant</item>
         <item>Junior Lieutenant</item>
         <item>Lieutenant</item>
-        <item>Captain</item>
+        <item>Staff Lieutenant</item>
+        <item>Sergeant Major</item>
         <item>Major</item>
-        <item>Colonel</item>
+        <item>Captain</item>
+        <item>Major General</item>
+        <item>General</item>
+    </string-array>
+
+    <string-array name="ranks1">
+        <item>Private</item>
+        <item>Specialist</item>
+        <item>Corporal</item>
+        <item>Sergeant</item>
+        <item>St Sergeant</item>
+        <item>Mst Sergeant</item>
+        <item>Jun Lieut</item>
+        <item>Lieutenant</item>
+        <item>St Lieut</item>
+        <item>Sergeant Major</item>
+        <item>Major</item>
+        <item>Captain</item>
         <item>Major General</item>
         <item>General</item>
     </string-array>

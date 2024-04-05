@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.LayoutRes;
@@ -33,6 +34,8 @@ public class BaseActivity extends AppCompatActivity {
     Button playBtn;
     Button resetProgressBtn;
 
+    ImageView rankImageView;
+    TextView rankTextView;
     int rank;
     TextView auTextBtn;
     TextView auMailBtn;
@@ -108,14 +111,20 @@ public class BaseActivity extends AppCompatActivity {
         ans_b = findViewById(R.id.version2_text_view);
         ans_c = findViewById(R.id.version3_text_view);
         next_sit = findViewById(R.id.next_sit_button);
+        rankTextView = findViewById(R.id.ranktext);
+        String[] ranks = getResources().getStringArray(R.array.ranks);
+        String[] ranks1 = getResources().getStringArray(R.array.ranks1);
+        rankTextView.setText(ranks1[0]);
         if (situationIndex == 0) {
             // Если это начало игры, показываем начальный текст
             setTextSafely(once_upon, R.string.startGameStory);
+
             ans_a.setVisibility(View.INVISIBLE);
             ans_b.setVisibility(View.INVISIBLE);
             ans_c.setVisibility(View.GONE);
             next_sit.setVisibility(View.VISIBLE);
         } else {
+            rankTextView.setText(ranks1[rank]);
             // Получение массивов из ресурсов
             String[] scenarios = getResources().getStringArray(getResources().getIdentifier("sit", "array", getPackageName()));
             String[] options = getResources().getStringArray(getResources().getIdentifier("choices" + situationIndex, "array", getPackageName()));
@@ -131,7 +140,6 @@ public class BaseActivity extends AppCompatActivity {
             ans_b.setText(options[1]);
             ans_c.setText(options[2]);
             // Обновление текущего индекса ситуации
-
             situation_Index = situationIndex;
         }
     }
@@ -211,12 +219,17 @@ public class BaseActivity extends AppCompatActivity {
                 }
                 break;
             case 13:
-                break;
+                if (optionIndex == 2) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
             default:
                 break;
         }
 
-        if ((currentSituationIndex == 1 && optionIndex == 3) || (currentSituationIndex == 2 && (optionIndex == 1 || optionIndex == 3)) || (currentSituationIndex == 3 && optionIndex == 2) || (currentSituationIndex == 4 && optionIndex == 2) || (currentSituationIndex == 5 && (optionIndex == 1 || optionIndex == 3))){
+        String[] ranks1 = getResources().getStringArray(R.array.ranks1);
+        rankTextView.setText(ranks1[rank]);
+
+        if ((currentSituationIndex == 1 && optionIndex == 3) || (currentSituationIndex == 2 && (optionIndex == 1 || optionIndex == 3)) || (currentSituationIndex == 3 && optionIndex == 2) || (currentSituationIndex == 4 && optionIndex == 2) || (currentSituationIndex == 5 && (optionIndex == 1 || optionIndex == 3))) {
             // Получение массива историй из ресурсов
             String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
             // Отображение истории в зависимости от выбора
@@ -240,7 +253,7 @@ public class BaseActivity extends AppCompatActivity {
                 }
             });
 
-        }else if((currentSituationIndex == 6 && optionIndex == 1) || (currentSituationIndex == 7 && optionIndex == 3) || (currentSituationIndex == 8 && optionIndex == 3) || (currentSituationIndex == 9 && optionIndex == 3) || (currentSituationIndex == 12 && (optionIndex == 2 || optionIndex == 3))){
+        } else if ((currentSituationIndex == 6 && optionIndex == 1) || (currentSituationIndex == 7 && optionIndex == 3) || (currentSituationIndex == 8 && optionIndex == 3) || (currentSituationIndex == 9 && optionIndex == 3) || (currentSituationIndex == 12 && (optionIndex == 2 || optionIndex == 3))) {
             // Получение массива историй из ресурсов
             String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
             // Отображение истории в зависимости от выбора
@@ -263,7 +276,7 @@ public class BaseActivity extends AppCompatActivity {
                     startActivity(new Intent(String.valueOf(PlayActivity.class)));
                 }
             });
-        }else if(currentSituationIndex == 13 && (optionIndex == 1 || optionIndex == 3 || optionIndex == 2)){
+        } else if (currentSituationIndex == 13 && (optionIndex == 1 || optionIndex == 3 || optionIndex == 2)) {
             // Получение массива историй из ресурсов
             String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
             // Отображение истории в зависимости от выбора
@@ -286,7 +299,7 @@ public class BaseActivity extends AppCompatActivity {
                     startActivity(new Intent(String.valueOf(PlayActivity.class)));
                 }
             });
-        }else{
+        } else {
             // Получение массива историй из ресурсов
             String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
 
@@ -322,6 +335,8 @@ public class BaseActivity extends AppCompatActivity {
         } else {
             storyResult = stories[optionCurrentIndex].replace("{rank}", String.valueOf(ranks[rank]));
         }
+        String[] ranks1 = getResources().getStringArray(R.array.ranks1);
+        rankTextView.setText(ranks1[rank]);
         once_upon.setText(storyResult);
         ans_a.setVisibility(View.INVISIBLE);
         ans_b.setVisibility(View.INVISIBLE);
@@ -337,6 +352,8 @@ public class BaseActivity extends AppCompatActivity {
 
         // Отображение истории в зависимости от выбора
         String storyResult = stories[optionCurrentIndex];
+        String[] ranks1 = getResources().getStringArray(R.array.ranks1);
+        rankTextView.setText(ranks1[rank]);
         once_upon.setText(storyResult);
         ans_a.setVisibility(View.INVISIBLE);
         ans_b.setVisibility(View.INVISIBLE);
@@ -351,7 +368,6 @@ public class BaseActivity extends AppCompatActivity {
             textView.setText(getString(stringResId));
         }
     }
-
 
 
     public void setLocale(String languageCode) {

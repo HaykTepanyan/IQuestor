@@ -106,8 +106,6 @@
             android:text="@string/act_main_about_us_res"
             android:textSize="60dp"
             android:textStyle="bold" />
-
-
     </LinearLayout>
 
 </RelativeLayout>

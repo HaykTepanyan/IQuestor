@@ -29,6 +29,7 @@ public class PlayActivity extends BaseActivity {
     private int currentSituationIndex = 0;
     TextView once_upon;
     TextView ans_a;
+    TextView ranktext1;
     TextView ans_b;
     TextView ans_c;
 
@@ -137,7 +138,6 @@ public class PlayActivity extends BaseActivity {
         ans_a = findViewById(R.id.version1_text_view);
         ans_b = findViewById(R.id.version2_text_view);
         ans_c = findViewById(R.id.version3_text_view);
-
 
         next_sit.setOnClickListener(new View.OnClickListener() {
             @Override

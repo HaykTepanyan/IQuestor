@@ -91,19 +91,7 @@
 
     </TextView>
 
-    <TextView
-        android:id="@+id/about_us_phone_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/about_us_phone_res"
-        android:textStyle="bold|italic"
-        android:textSize="28sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/about_us_mail_text"
-        android:layout_marginTop="-65dp"
-        >
 
-    </TextView>
 
 
 </RelativeLayout>

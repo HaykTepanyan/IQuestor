@@ -41,6 +41,23 @@
             android:src="@drawable/baseline_logout_24" />
     </RelativeLayout>
 
+
+    <TextView
+        android:id="@+id/ranktext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:textAlignment="center"
+        android:layout_marginTop="60dp"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:backgroundTint="#FFFFEC"
+        android:fontFamily="@font/game_sans_serif_7"
+        android:textStyle="bold"
+        android:textColor="@color/chocolate"
+        android:text=""/>
+
+
     <LinearLayout
         android:id="@+id/gameplay_lay"
         android:layout_width="match_parent"
