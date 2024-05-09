@@ -28,7 +28,6 @@ public class MainActivity extends BaseActivity {
     Button howToPlayBtn;
     Button playBtn;
     ImageButton changeLangBtn;
-    Button resetProgressBtn;
     private AlertDialog Dialog;
     private AlertDialog.Builder Builder;
     private MediaPlayer mediaPlayer;

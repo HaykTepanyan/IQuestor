@@ -61,7 +61,7 @@
         android:layout_below="@id/game_name_text_view"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="70dp"
-        android:layout_marginVertical="160dp"
+        android:layout_marginVertical="180dp"
         android:orientation="vertical">
 
         <Button
@@ -71,17 +71,6 @@
             android:layout_marginHorizontal="30dp"
             android:fontFamily="@font/game_ring_demo_regular"
             android:text="@string/act_main_play_res"
-            android:textSize="60dp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/reset_btn"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:layout_marginHorizontal="30dp"
-            android:layout_marginTop="15dp"
-            android:fontFamily="@font/game_ring_demo_regular"
-            android:text="@string/act_main_reset_progress_res"
             android:textSize="60dp"
             android:textStyle="bold" />
 

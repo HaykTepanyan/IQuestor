@@ -12,19 +12,11 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 public class BaseActivity extends AppCompatActivity {
@@ -75,11 +67,9 @@ public class BaseActivity extends AppCompatActivity {
         aboutUsBtn = findViewById(R.id.about_us_btn);
         howToPlayBtn = findViewById(R.id.how_to_play_btn);
         playBtn = findViewById(R.id.play_btn);
-        resetProgressBtn = findViewById(R.id.reset_btn);
         setTextSafely(aboutUsBtn, R.string.act_main_about_us_res);
         setTextSafely(howToPlayBtn, R.string.act_main_htp_res);
         setTextSafely(playBtn, R.string.act_main_play_res);
-        setTextSafely(resetProgressBtn, R.string.act_main_reset_progress_res);
 
         auMailBtn = findViewById(R.id.about_us_mail_text);
         auTextBtn = findViewById(R.id.about_us_text);
@@ -120,373 +110,257 @@ public class BaseActivity extends AppCompatActivity {
         ans_c = findViewById(R.id.version3_text_view);
         next_sit = findViewById(R.id.next_sit_button);
         rankTextView = findViewById(R.id.ranktext);
+        String[] ranks = getResources().getStringArray(R.array.ranks);
         String[] ranks1 = getResources().getStringArray(R.array.ranks1);
         rankTextView.setText(ranks1[0]);
+        if (situationIndex == 0) {
+            // Если это начало игры, показываем начальный текст
+            setTextSafely(once_upon, R.string.startGameStory);
 
-        DatabaseReference ranksRef = FirebaseDatabase.getInstance().getReference().child("ranks1");
-        ranksRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<String> ranksList = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String rank = snapshot.getValue(String.class);
-                    ranksList.add(rank);
-                }
-                String[] ranks = ranksList.toArray(new String[0]);
-
-                if (situationIndex == 0) {
-                    // Если это начало игры, показываем начальный текст
-                    once_upon.setText(getResources().getString(R.string.startGameStory));
-                    ans_a.setVisibility(View.INVISIBLE);
-                    ans_b.setVisibility(View.INVISIBLE);
-                    ans_c.setVisibility(View.GONE);
-                    next_sit.setVisibility(View.VISIBLE);
-                } else {
-                    DatabaseReference storiesRef = FirebaseDatabase.getInstance().getReference().child("stories" + situationIndex);
-                    storiesRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            List<String> storiesList = new ArrayList<>();
-                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                                String story = snapshot.getValue(String.class);
-                                storiesList.add(story);
-                            }
-                            String[] stories = storiesList.toArray(new String[0]);
-
-                            String[] scenarios = getResources().getStringArray(getResources().getIdentifier("sit", "array", getPackageName()));
-                            String[] options = getResources().getStringArray(getResources().getIdentifier("choices" + situationIndex, "array", getPackageName()));
-
-                            // Отображение сценария
-                            once_upon.setText(scenarios[situationIndex - 1]);
-                            ans_a.setVisibility(View.VISIBLE);
-                            ans_b.setVisibility(View.VISIBLE);
-                            ans_c.setVisibility(View.VISIBLE);
-                            next_sit.setVisibility(View.GONE);
-                            ans_a.setText(options[0]);
-                            ans_b.setText(options[1]);
-                            ans_c.setText(options[2]);
-                            situation_Index = situationIndex;
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-                            // Обработка ошибок базы данных для stories
-                        }
-                    });
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // Обработка ошибок базы данных для ranks1
-            }
-        });
+            ans_a.setVisibility(View.INVISIBLE);
+            ans_b.setVisibility(View.INVISIBLE);
+            ans_c.setVisibility(View.GONE);
+            next_sit.setVisibility(View.VISIBLE);
+        } else {
+            rankTextView.setText(ranks1[rank]);
+            // Получение массивов из ресурсов
+            String[] scenarios = getResources().getStringArray(getResources().getIdentifier("sit", "array", getPackageName()));
+            String[] options = getResources().getStringArray(getResources().getIdentifier("choices" + situationIndex, "array", getPackageName()));
+            String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + situationIndex, "array", getPackageName()));
+            // Отображение сценария
+            once_upon.setText(scenarios[situationIndex - 1]);
+            // Отображение вариантов выбора
+            ans_a.setVisibility(View.VISIBLE);
+            ans_b.setVisibility(View.VISIBLE);
+            ans_c.setVisibility(View.VISIBLE);
+            next_sit.setVisibility(View.GONE);
+            ans_a.setText(options[0]);
+            ans_b.setText(options[1]);
+            ans_c.setText(options[2]);
+            // Обновление текущего индекса ситуации
+            situation_Index = situationIndex;
+        }
     }
-
-
 
     void handleOptionClick(int optionIndex) {
         currentSituationIndex = situation_Index;
         TextView finish_game = findViewById(R.id.finish_game_btn);
-
-        DatabaseReference ranksRef = FirebaseDatabase.getInstance().getReference().child("ranks");
-        ranksRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<String> ranksList = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String rank = snapshot.getValue(String.class);
-                    ranksList.add(rank);
+        String[] ranks = getResources().getStringArray(R.array.ranks);
+        String currentLanguage = getCurrentLanguage();
+        switch (currentSituationIndex) {
+            case 1:
+                if (optionIndex == 1) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
                 }
-                String[] ranks = ranksList.toArray(new String[0]);
-
-                String currentLanguage = getCurrentLanguage();
-                switch (currentSituationIndex) {
-                    case 1:
-                        if (optionIndex == 1) {
-                            rank = Math.min(rank + 1, ranks.length - 1);
-                        }
-                        break;
-                    case 2:
-                        if (optionIndex == 2) {
-                            rank = Math.min(rank + 1, ranks.length - 1);
-                        }
-                        break;
-                    case 3:
-                        if (optionIndex == 1) {
-                            rank = Math.min(rank + 1, ranks.length - 1);
-                        }
-                        break;
-                    case 4:
-                        if (optionIndex == 2) {
-                            rank = Math.max(rank - 1, 0);
-                        }
-                        break;
-                    case 5:
-                        if (optionIndex == 2) {
-                            rank = Math.min(rank + 1, ranks.length - 1);
-                        }
-                        break;
-                    case 6:
-                        if (optionIndex == 2 || optionIndex == 3) {
-                            rank = Math.min(rank + 1, ranks.length - 1);
-                        }
-                        break;
-                    case 7:
-                        if (optionIndex == 1) {
-                            rank = Math.max(rank - 1, 0);
-                        } else if (optionIndex == 2) {
-                            rank = Math.min(rank + 2, ranks.length - 1);
-                        }
-                        break;
-                    case 8:
-                        if (optionIndex == 2) {
-                            rank = Math.min(rank + 1, ranks.length - 1);
-                        } else if (optionIndex == 1) {
-                            rank = Math.max(rank - 2, 0);
-                        }
-                        break;
-                    case 9:
-                        if (optionIndex == 2) {
-                            rank = Math.min(rank + 1, ranks.length - 1);
-                        } else if (optionIndex == 1) {
-                            rank = Math.max(rank - 1, 0);
-                        }
-                        break;
-                    case 10:
-                        if (optionIndex == 1) {
-                            rank = Math.min(rank + 1, ranks.length - 1);
-                        } else if (optionIndex == 2) {
-                            rank = Math.max(rank - 1, 0);
-                        }
-                        break;
-                    case 11:
-                        if (optionIndex == 1 || optionIndex == 2) {
-                            rank = Math.min(rank + 1, ranks.length - 1);
-                        }
-                        break;
-                    case 12:
-                        if (optionIndex == 1) {
-                            rank = Math.min(rank + 1, ranks.length - 1);
-                        }
-                        break;
-                    case 13:
-                        if (optionIndex == 2) {
-                            rank = Math.min(rank + 1, ranks.length - 1);
-                        }
-                        break;
-                    default:
-                        break;
+                break;
+            case 2:
+                if (optionIndex == 2) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
                 }
+                break;
+            case 3:
+                if (optionIndex == 1) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
+                break;
+            case 4:
+                if (optionIndex == 2) {
+                    rank = Math.max(rank - 1, 0);
+                }
+                break;
+            case 5:
+                if (optionIndex == 2) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
+                break;
+            case 6:
+                if (optionIndex == 2 || optionIndex == 3) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
+                break;
+            case 7:
+                if (optionIndex == 1) {
+                    rank = Math.max(rank - 1, 0);
+                } else if (optionIndex == 2) {
+                    rank = Math.min(rank + 2, ranks.length - 1);
+                }
+                break;
+            case 8:
+                if (optionIndex == 2) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                } else if (optionIndex == 1) {
+                    rank = Math.max(rank - 2, 0);
+                }
+                break;
+            case 9:
+                if (optionIndex == 2) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                } else if (optionIndex == 1) {
+                    rank = Math.max(rank - 1, 0);
+                }
+                break;
+            case 10:
+                if (optionIndex == 1) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                } else if (optionIndex == 2) {
+                    rank = Math.max(rank - 1, 0);
+                }
+                break;
+            case 11:
+                if (optionIndex == 1 || optionIndex == 2) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
+                break;
+            case 12:
+                if (optionIndex == 1) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
+                break;
+            case 13:
+                if (optionIndex == 2) {
+                    rank = Math.min(rank + 1, ranks.length - 1);
+                }
+            default:
+                break;
+        }
 
-                DatabaseReference storiesRef = FirebaseDatabase.getInstance().getReference().child("stories" + currentSituationIndex);
-                storiesRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        List<String> storiesList = new ArrayList<>();
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            String story = snapshot.getValue(String.class);
-                            storiesList.add(story);
-                        }
-                        String[] stories = storiesList.toArray(new String[0]);
+        String[] ranks1 = getResources().getStringArray(R.array.ranks1);
+        rankTextView.setText(ranks1[rank]);
 
-                        String storyResult;
-                        if (currentLanguage.equals("ru")) {
-                            storyResult = stories[optionIndex - 1].replace("{звание}", String.valueOf(ranks[rank]));
-                        } else {
-                            storyResult = stories[optionIndex - 1].replace("{rank}", String.valueOf(ranks[rank]));
-                        }
-
-                        optionCurrentIndex = optionIndex - 1;
-                        once_upon.setText(storyResult);
-                        ans_a.setVisibility(View.INVISIBLE);
-                        ans_b.setVisibility(View.INVISIBLE);
-                        ans_c.setVisibility(View.GONE);
-                        next_sit.setVisibility(View.GONE);
-                        finish_game.setVisibility(View.VISIBLE);
-                        finish_game.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                startActivity(new Intent(PlayActivity.this, PlayActivity.class));
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        // Обработка ошибок базы данных для stories
-                    }
-                });
+        if ((currentSituationIndex == 1 && optionIndex == 3) || (currentSituationIndex == 2 && (optionIndex == 1 || optionIndex == 3)) || (currentSituationIndex == 3 && optionIndex == 2) || (currentSituationIndex == 4 && optionIndex == 2) || (currentSituationIndex == 5 && (optionIndex == 1 || optionIndex == 3))) {
+            // Получение массива историй из ресурсов
+            String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
+            // Отображение истории в зависимости от выбора
+            String storyResult;
+            if (currentLanguage.equals("ru")) {
+                storyResult = stories[optionIndex - 1].replace("{звание}", String.valueOf(ranks[rank]));
+            } else {
+                storyResult = stories[optionIndex - 1].replace("{rank}", String.valueOf(ranks[rank]));
             }
+            optionCurrentIndex = optionIndex - 1;
+            once_upon.setText(storyResult);
+            ans_a.setVisibility(View.INVISIBLE);
+            ans_b.setVisibility(View.INVISIBLE);
+            ans_c.setVisibility(View.GONE);
+            next_sit.setVisibility(View.GONE);
+            finish_game.setVisibility(View.VISIBLE);
+            finish_game.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(String.valueOf(PlayActivity.class)));
+                }
+            });
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // Обработка ошибок базы данных для ranks
+        } else if ((currentSituationIndex == 6 && optionIndex == 1) || (currentSituationIndex == 7 && optionIndex == 3) || (currentSituationIndex == 8 && optionIndex == 3) || (currentSituationIndex == 9 && optionIndex == 3) || (currentSituationIndex == 12 && (optionIndex == 2 || optionIndex == 3))) {
+            // Получение массива историй из ресурсов
+            String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
+            // Отображение истории в зависимости от выбора
+            String storyResult;
+            if (currentLanguage.equals("ru")) {
+                storyResult = stories[optionIndex - 1].replace("{звание}", String.valueOf(ranks[rank]));
+            } else {
+                storyResult = stories[optionIndex - 1].replace("{rank}", String.valueOf(ranks[rank]));
             }
-        });
+            optionCurrentIndex = optionIndex - 1;
+            once_upon.setText(storyResult);
+            ans_a.setVisibility(View.INVISIBLE);
+            ans_b.setVisibility(View.INVISIBLE);
+            ans_c.setVisibility(View.GONE);
+            next_sit.setVisibility(View.GONE);
+            finish_game.setVisibility(View.VISIBLE);
+            finish_game.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(String.valueOf(PlayActivity.class)));
+                }
+            });
+        } else if (currentSituationIndex == 13 && (optionIndex == 1 || optionIndex == 3 || optionIndex == 2)) {
+            // Получение массива историй из ресурсов
+            String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
+            // Отображение истории в зависимости от выбора
+            String storyResult;
+            if (currentLanguage.equals("ru")) {
+                storyResult = stories[optionIndex - 1].replace("{звание}", String.valueOf(ranks[rank]));
+            } else {
+                storyResult = stories[optionIndex - 1].replace("{rank}", String.valueOf(ranks[rank]));
+            }
+            optionCurrentIndex = optionIndex - 1;
+            once_upon.setText(storyResult);
+            ans_a.setVisibility(View.INVISIBLE);
+            ans_b.setVisibility(View.INVISIBLE);
+            ans_c.setVisibility(View.GONE);
+            next_sit.setVisibility(View.GONE);
+            finish_game.setVisibility(View.VISIBLE);
+            finish_game.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(String.valueOf(PlayActivity.class)));
+                    finish();
+                }
+            });
+        } else {
+            // Получение массива историй из ресурсов
+            String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
+
+            // Отображение истории в зависимости от выбора
+            String storyResult;
+            if (currentLanguage.equals("ru")) {
+                storyResult = stories[optionIndex - 1].replace("{звание}", String.valueOf(ranks[rank]));
+            } else {
+                storyResult = stories[optionIndex - 1].replace("{rank}", String.valueOf(ranks[rank]));
+            }
+            optionCurrentIndex = optionIndex - 1;
+            once_upon.setText(storyResult);
+            ans_a.setVisibility(View.INVISIBLE);
+            ans_b.setVisibility(View.INVISIBLE);
+            ans_c.setVisibility(View.GONE);
+            next_sit.setVisibility(View.VISIBLE);
+            finish_game.setVisibility(View.GONE);
+            situation_Index++;
+        }
+
+
     }
-
 
     void nextBtnVisible() {
-        // Получение ссылки на вашу базу данных в Firebase для stories
-        DatabaseReference storiesRef = FirebaseDatabase.getInstance().getReference().child("stories" + currentSituationIndex);
+        // Получение массива историй из ресурсов
+        String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
+        String[] ranks = getResources().getStringArray(R.array.ranks);
+        // Отображение истории в зависимости от выбора
+        String currentLanguage = getCurrentLanguage();
+        String storyResult;
+        if (currentLanguage.equals("ru")) {
+            storyResult = stories[optionCurrentIndex].replace("{звание}", String.valueOf(ranks[rank]));
+        } else {
+            storyResult = stories[optionCurrentIndex].replace("{rank}", String.valueOf(ranks[rank]));
+        }
+        String[] ranks1 = getResources().getStringArray(R.array.ranks1);
+        rankTextView.setText(ranks1[rank]);
+        once_upon.setText(storyResult);
+        ans_a.setVisibility(View.INVISIBLE);
+        ans_b.setVisibility(View.INVISIBLE);
+        ans_c.setVisibility(View.GONE);
+        next_sit.setVisibility(View.VISIBLE);
 
-        // Получение данных из Firebase Realtime Database для stories
-        storiesRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // Парсинг данных из snapshot для stories
-                List<String> storiesList = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String story = snapshot.getValue(String.class);
-                    storiesList.add(story);
-                }
-
-                // Преобразование списка в массив строк для stories
-                String[] stories = storiesList.toArray(new String[0]);
-
-                // Получение ссылки на вашу базу данных в Firebase для ranks
-                DatabaseReference ranksRef = FirebaseDatabase.getInstance().getReference().child("ranks");
-
-                // Получение данных из Firebase Realtime Database для ranks
-                ranksRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        // Парсинг данных из snapshot для ranks
-                        List<String> ranksList = new ArrayList<>();
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            String rank = snapshot.getValue(String.class);
-                            ranksList.add(rank);
-                        }
-
-                        // Преобразование списка в массив строк для ranks
-                        String[] ranks = ranksList.toArray(new String[0]);
-
-                        // Получение текущего языка
-                        String currentLanguage = getCurrentLanguage();
-
-                        // Объявление переменной storyResult до блока if
-                        String storyResult;
-
-                        // Формирование итоговой истории в зависимости от выбора языка
-                        if (currentLanguage.equals("ru")) {
-                            storyResult = stories[optionCurrentIndex].replace("{звание}", String.valueOf(ranks[rank]));
-                        } else {
-                            storyResult = stories[optionCurrentIndex].replace("{rank}", String.valueOf(ranks[rank]));
-                        }
-
-                        // Получение ссылки на вашу базу данных в Firebase для ranks1
-                        DatabaseReference ranks1Ref = FirebaseDatabase.getInstance().getReference().child("ranks1");
-
-                        // Получение данных из Firebase Realtime Database для ranks1
-                        ranks1Ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                // Парсинг данных из snapshot для ranks1
-                                List<String> ranks1List = new ArrayList<>();
-                                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                                    String rank = snapshot.getValue(String.class);
-                                    ranks1List.add(rank);
-                                }
-
-                                // Преобразование списка в массив строк для ranks1
-                                String[] ranks1 = ranks1List.toArray(new String[0]);
-
-                                // Отображение истории и ранга в зависимости от выбора
-                                rankTextView.setText(ranks1[rank]);
-                                once_upon.setText(storyResult);
-                                ans_a.setVisibility(View.INVISIBLE);
-                                ans_b.setVisibility(View.INVISIBLE);
-                                ans_c.setVisibility(View.GONE);
-                                next_sit.setVisibility(View.VISIBLE);
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-                                // Обработка ошибок базы данных для ranks1
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        // Обработка ошибок базы данных для ranks
-                    }
-                });
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // Обработка ошибок базы данных для stories
-            }
-        });
     }
-
 
     void finishBtnVisible() {
         TextView finish_btn = findViewById(R.id.finish_game_btn);
+        // Получение массива историй из ресурсов
+        String[] stories = getResources().getStringArray(getResources().getIdentifier("stories" + currentSituationIndex, "array", getPackageName()));
 
-        // Получение ссылки на вашу базу данных в Firebase для stories
-        DatabaseReference storiesRef = FirebaseDatabase.getInstance().getReference().child("stories" + currentSituationIndex);
+        // Отображение истории в зависимости от выбора
+        String storyResult = stories[optionCurrentIndex];
+        String[] ranks1 = getResources().getStringArray(R.array.ranks1);
+        rankTextView.setText(ranks1[rank]);
+        once_upon.setText(storyResult);
+        ans_a.setVisibility(View.INVISIBLE);
+        ans_b.setVisibility(View.INVISIBLE);
+        ans_c.setVisibility(View.GONE);
+        next_sit.setVisibility(View.GONE);
+        finish_btn.setVisibility(View.VISIBLE);
 
-        // Получение данных из Firebase Realtime Database для stories
-        storiesRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                // Парсинг данных из snapshot для stories
-                List<String> storiesList = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String story = snapshot.getValue(String.class);
-                    storiesList.add(story);
-                }
-
-                // Преобразование списка в массив строк для stories
-                String[] stories = storiesList.toArray(new String[0]);
-
-                // Отображение истории в зависимости от выбора
-                String storyResult = stories[optionCurrentIndex];
-
-                // Получение ссылки на вашу базу данных в Firebase для ranks1
-                DatabaseReference ranks1Ref = FirebaseDatabase.getInstance().getReference().child("ranks1");
-
-                // Получение данных из Firebase Realtime Database для ranks1
-                ranks1Ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        // Парсинг данных из snapshot для ranks1
-                        List<String> ranks1List = new ArrayList<>();
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            String rank = snapshot.getValue(String.class);
-                            ranks1List.add(rank);
-                        }
-
-                        // Преобразование списка в массив строк для ranks1
-                        String[] ranks1 = ranks1List.toArray(new String[0]);
-
-                        // Отображение истории и ранга в зависимости от выбора
-                        rankTextView.setText(ranks1[rank]);
-                        once_upon.setText(storyResult);
-                        ans_a.setVisibility(View.INVISIBLE);
-                        ans_b.setVisibility(View.INVISIBLE);
-                        ans_c.setVisibility(View.GONE);
-                        next_sit.setVisibility(View.GONE);
-                        finish_btn.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        // Обработка ошибок базы данных для ranks1
-                    }
-                });
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // Обработка ошибок базы данных для stories
-            }
-        });
     }
-
 
     private void setTextSafely(TextView textView, int stringResId) {
         if (textView != null) {
