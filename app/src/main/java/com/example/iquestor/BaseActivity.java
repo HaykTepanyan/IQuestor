@@ -218,8 +218,9 @@ public class BaseActivity extends AppCompatActivity {
                 break;
             case 13:
                 if (optionIndex == 2) {
-                    rank = Math.min(rank + 1, ranks.length - 1);
+                    rank = Math.min(rank + (ranks.length - rank), ranks.length - 1);
                 }
+                break;
             default:
                 break;
         }
@@ -248,6 +249,7 @@ public class BaseActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(String.valueOf(PlayActivity.class)));
+                    finish();
                 }
             });
 
@@ -272,6 +274,7 @@ public class BaseActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     startActivity(new Intent(String.valueOf(PlayActivity.class)));
+                    finish();
                 }
             });
         } else if (currentSituationIndex == 13 && (optionIndex == 1 || optionIndex == 3 || optionIndex == 2)) {
